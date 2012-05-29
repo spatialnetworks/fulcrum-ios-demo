@@ -3,12 +3,19 @@
 //  FulcrumAPITest
 //
 //  Created by Ben Rigas on 5/25/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
 #import "SNMasterViewController.h"
 
 #import "SNDetailViewController.h"
+
+#import "SNFormAPI.h"
+#import "SNFormSectionElement.h"
+#import "SNFormTextFieldElement.h"
+#import "SNFormChoiceFieldElement.h"
+#import "SNClassificationSet.h"
+#import "SNClassificationSetItem.h"
 
 @interface SNMasterViewController () {
     NSMutableArray *_objects;
@@ -47,6 +54,153 @@
 
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
+
+//    [self getForms];
+//    [self createTestForm];
+    [self createClassificationSet];
+}
+
+- (void) getForms
+{
+    SNFormAPI* forms = [[SNFormAPI alloc] init];
+    
+    [forms getFormsWithSchema:YES 
+                      success:^(NSArray* myForms) {
+//                          NSLog(@"form0: %@", [forms objectAtIndex:1]);
+                          for (NSDictionary* form in myForms) {
+                              NSLog(@"form %@", form);
+                          }
+                      } 
+                      failure:^(NSError* error) {
+                          NSLog(@"dang: %@", error);
+                      }];
+    
+    [forms release];
+}
+
+- (void) createTestForm
+{
+    SNForm* testForm = [[SNForm alloc] init];
+    
+    testForm.name = @"Test API Form";
+    testForm.description = @"Form made from API";
+        
+    for (int x = 0; x < 10; x++) {
+        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
+        textElement.label = [NSString stringWithFormat:@"Text field #%d", x];
+        textElement.dataName = @"text_foo";
+        [testForm.rootSectionElement.elements addObject:textElement];
+        [textElement release];
+    }
+    
+    SNFormChoiceFieldElement* choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = NO;
+    choiceElement.allowOther = NO;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, no Multiple, no Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = YES;
+    choiceElement.allowOther = NO;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, with Multiple, no Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = YES;
+    choiceElement.allowOther = YES;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, with Multiple, With Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = NO;
+    choiceElement.allowOther = YES;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, no Multiple, with Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    SNFormSectionElement* testSection = [[SNFormSectionElement alloc] init];
+    testSection.label = @"Some section";
+    testSection.dataName = @"test_sec";
+    
+    for (int x = 0; x < 5; x++) {
+        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
+        textElement.label = [NSString stringWithFormat:@"Section Text field #%d", x];
+        textElement.dataName = @"text_foo";
+        [testSection.elements addObject:textElement];
+        [textElement release];
+    }
+    
+    [testForm.rootSectionElement.elements addObject:testSection];
+    
+    SNFormAPI* forms = [[SNFormAPI alloc] init];
+    
+    [forms createForm:testForm 
+              success:^(void){
+                  NSLog(@"Form created!");
+              } 
+              failure:^(NSError* error, NSArray* validationErrors){
+                  NSLog(@"Dang: %@ ... %@", error, validationErrors);
+              }
+     ];
+    
+    [forms release];
+}
+
+- (void) createClassificationSet
+{
+    SNClassificationSet* classificationSet = [[SNClassificationSet alloc] init];
+    
+    classificationSet.name = @"Classy";
+    classificationSet.label = @"Wat?";
+    classificationSet.description = @"Classify";
+    
+    for (int x = 0; x < 10; x++) {
+        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
+        item.label = [NSString stringWithFormat:@"label %d", x];
+        item.value = [NSString stringWithFormat:@"value %d", x];
+        [classificationSet.items addObject:item];
+        [item release];
+    }
+    
+    SNClassificationSetItem* nestedItem = [[SNClassificationSetItem alloc] init];
+    
+    nestedItem.label = @"Testing";
+    nestedItem.value = @"Testing";
+    
+    for (int x = 0; x < 4; x++) {
+        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
+        item.label = [NSString stringWithFormat:@"label %d", x];
+        item.value = [NSString stringWithFormat:@"value %d", x];
+        [nestedItem.childClassifications addObject:item];
+        [item release];
+    }
+    
+    [classificationSet.items addObject:nestedItem];
+    
+    [nestedItem release];
+    
+    NSLog(@"CS: %@", classificationSet.attributes);
+    
+    [classificationSet release];
 }
 
 - (void)viewDidUnload
