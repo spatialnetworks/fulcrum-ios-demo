@@ -61,10 +61,8 @@
 }
 
 - (void) getForms
-{
-    SNFormAPI* forms = [[SNFormAPI alloc] init];
-    
-    [forms getFormsWithSchema:YES 
+{    
+    [SNFormAPI getFormsWithSchema:YES 
                       success:^(NSArray* myForms) {
 //                          NSLog(@"form0: %@", [forms objectAtIndex:1]);
                           for (NSDictionary* form in myForms) {
@@ -73,9 +71,7 @@
                       } 
                       failure:^(NSError* error) {
                           NSLog(@"dang: %@", error);
-                      }];
-    
-    [forms release];
+                      }];    
 }
 
 - (void) createTestForm
@@ -151,18 +147,14 @@
     
     [testForm.rootSectionElement.elements addObject:testSection];
     
-    SNFormAPI* forms = [[SNFormAPI alloc] init];
-    
-    [forms createForm:testForm 
+    [SNFormAPI createForm:testForm 
               success:^(void){
                   NSLog(@"Form created!");
               } 
               failure:^(NSError* error, NSArray* validationErrors){
                   NSLog(@"Dang: %@ ... %@", error, validationErrors);
               }
-     ];
-    
-    [forms release];
+     ];    
 }
 
 - (void) createClassificationSet

@@ -11,7 +11,7 @@
 
 @implementation SNFormAPI
 
-- (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure
++ (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure
 {
     NSMutableArray* formResults = [NSMutableArray array];
     
@@ -47,7 +47,7 @@
 }
 
 
-- (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
++ (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
 {
     NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
     
@@ -60,7 +60,7 @@
                                             }];
 }
 
-- (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
++ (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
 {
     NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
 
@@ -73,7 +73,7 @@
                                          }];
 }
 
-- (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
++ (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
 {
     NSLog(@"create form with attributes: %@", form.attributes);
 

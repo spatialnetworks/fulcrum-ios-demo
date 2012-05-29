@@ -11,9 +11,9 @@
 
 @interface SNFormAPI : NSObject
 
-- (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure;
-- (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-- (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-- (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
++ (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure;
++ (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
 
 @end
