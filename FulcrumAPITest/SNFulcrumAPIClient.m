@@ -25,6 +25,8 @@
         __sharedInstance = [[SNFulcrumAPIClient alloc] initWithBaseURL:
                             [NSURL URLWithString:FulcrumAPIBaseURLString]];
         __sharedInstance.parameterEncoding = AFJSONParameterEncoding;
+        
+        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     });
     
     return __sharedInstance;

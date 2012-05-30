@@ -11,6 +11,9 @@
 #import "SNMasterViewController.h"
 
 #import "SNDetailViewController.h"
+#import "SNFormsViewController.h"
+#import "SNClassificationSetsViewController.h"
+#import "SNChoiceListsViewController.h"
 
 @implementation SNAppDelegate
 
@@ -30,10 +33,31 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        SNMasterViewController *masterViewController = [[[SNMasterViewController alloc] initWithNibName:@"SNMasterViewController_iPhone" bundle:nil] autorelease];
-        self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
-        self.window.rootViewController = self.navigationController;
+//        SNMasterViewController *masterViewController = [[[SNMasterViewController alloc] initWithNibName:@"SNMasterViewController_iPhone" bundle:nil] autorelease];
+//        self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+//        self.window.rootViewController = self.navigationController;
+        
+        UITabBarController* tabController = [[UITabBarController alloc] init];
+
+        SNFormsViewController* formsController = [[[SNFormsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+        UINavigationController* formsNav = [[[UINavigationController alloc] initWithRootViewController:formsController] autorelease];
+        
+        SNClassificationSetsViewController* classificationController = [[[SNClassificationSetsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+        UINavigationController* classNav = [[[UINavigationController alloc] initWithRootViewController:classificationController] autorelease];
+        
+        SNChoiceListsViewController* choiceController = [[[SNChoiceListsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+        UINavigationController* choiceNav = [[[UINavigationController alloc] initWithRootViewController:choiceController] autorelease];
+        
+        NSMutableArray* viewControllers = [NSMutableArray array];
+        [viewControllers addObject:formsNav];
+        [viewControllers addObject:classNav];
+        [viewControllers addObject:choiceNav];
+        
+        [tabController setViewControllers:viewControllers];
+        
+        self.window.rootViewController = tabController;
     } else {
         SNMasterViewController *masterViewController = [[[SNMasterViewController alloc] initWithNibName:@"SNMasterViewController_iPad" bundle:nil] autorelease];
         UINavigationController *masterNavigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];

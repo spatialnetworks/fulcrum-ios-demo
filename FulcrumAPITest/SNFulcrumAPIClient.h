@@ -10,6 +10,7 @@
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONUtilities.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface SNFulcrumAPIClient : AFHTTPClient
 

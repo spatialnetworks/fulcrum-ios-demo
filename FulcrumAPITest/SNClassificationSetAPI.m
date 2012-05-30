@@ -18,10 +18,11 @@
     
     [[SNFulcrumAPIClient sharedInstance] getPath:CLASSIFICATION_SET_PATH parameters:nil
                                          success:^(AFHTTPRequestOperation *operation, id response) {
-                                             
+                                             [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+
 //                                             NSLog(@"RESPONSE: %@", response);
                                              
-                                             NSArray* sets = [response objectForKey:@"classification_set"];
+                                             NSArray* sets = [response objectForKey:@"classification_sets"];
 
                                              for (NSDictionary* classificationSetDict in sets)
                                              {
@@ -39,10 +40,11 @@
                                              }
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
                                              if (failure) {
                                                  failure(error);
                                              }
-                                         }];
+                                         }];    
 }
 
 + (void) deleteClassificationSet:(SNClassificationSet*)set success:(void (^)())success failure:(void (^)(NSError* error))failure {
