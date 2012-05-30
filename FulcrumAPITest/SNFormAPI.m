@@ -9,6 +9,8 @@
 #import "SNFormAPI.h"
 #import "SNFulcrumAPIClient.h"
 
+#define FORM_PATH @"forms"
+
 @implementation SNFormAPI
 
 + (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure
@@ -21,16 +23,16 @@
         [params setObject:@"false" forKey:@"schema"];
     }
     
-    [[SNFulcrumAPIClient sharedInstance] getPath:@"forms" parameters:params
+    [[SNFulcrumAPIClient sharedInstance] getPath:FORM_PATH parameters:params
                                          success:^(AFHTTPRequestOperation *operation, id response) {
                                              NSArray* forms = [response objectForKey:@"forms"];
                                              for (NSDictionary* formDict in forms)
                                              {
                                                  SNForm* form = [[SNForm alloc] initWithAttributes:formDict];
                                                  [formResults addObject:form];
-                                                 NSLog(@"==");
-                                                 NSLog(@"%@", formDict);
-                                                 NSLog(@"==");
+//                                                 NSLog(@"==");
+//                                                 NSLog(@"%@", formDict);
+//                                                 NSLog(@"==");
 
                                                  [form release];
                                              }
@@ -49,7 +51,7 @@
 
 + (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
 {
-    NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
+    NSString* path = [NSString stringWithFormat:@"%@/%@", FORM_PATH, form.id];
     
     [[SNFulcrumAPIClient sharedInstance] deletePath:path parameters:nil 
                                             success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -62,7 +64,7 @@
 
 + (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
 {
-    NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
+    NSString* path = [NSString stringWithFormat:@"%@/%@", FORM_PATH, form.id];
 
     [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:form.attributes
                                          success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -75,7 +77,7 @@
 
 + (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
 {
-    [[SNFulcrumAPIClient sharedInstance] postPath:@"forms" parameters:form.attributes 
+    [[SNFulcrumAPIClient sharedInstance] postPath:FORM_PATH parameters:form.attributes 
                                           success:^(AFHTTPRequestOperation* operation, id responseObject){
                                               if (success) success();
                                           }

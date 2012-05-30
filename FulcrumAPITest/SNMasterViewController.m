@@ -25,17 +25,21 @@
 @interface SNMasterViewController () {
     NSMutableArray *_objects;
 }
+
+@property (nonatomic, retain) NSArray* forms;
+
 @end
 
 @implementation SNMasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize forms = _forms;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        self.title = NSLocalizedString(@"Forms", @"Forms");
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -60,13 +64,13 @@
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
 
-//    [self getForms];
+    [self getForms];
 //    [self createTestForm];
 //    [self createClassificationSet];
     
 //    [self getClassificationSets];
 //    [self getChoiceLists];
-    [self createChoiceList];
+//    [self createChoiceList];
 //    [self getChoiceLists];
 
 }
@@ -75,10 +79,8 @@
 {    
     [SNFormAPI getFormsWithSchema:YES 
                       success:^(NSArray* myForms) {
-//                          NSLog(@"form0: %@", [forms objectAtIndex:1]);
-                          for (NSDictionary* form in myForms) {
-                              NSLog(@"form %@", form);
-                          }
+                          self.forms = myForms;
+                          [self.tableView reloadData];
                       } 
                       failure:^(NSError* error) {
                           NSLog(@"dang: %@", error);
@@ -102,6 +104,11 @@
 
 - (void)insertNewObject:(id)sender
 {
+    [self createTestForm];
+//    [self getForms];
+  
+    return;
+    
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
@@ -119,7 +126,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return self.forms.count;
+//    return _objects.count;
 }
 
 // Customize the appearance of table view cells.
@@ -134,10 +142,9 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
-
-
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object description];
+    
+    SNForm* form = [self.forms objectAtIndex:indexPath.row];
+    cell.textLabel.text = form.name;
     return cell;
 }
 
@@ -266,6 +273,7 @@
     [SNFormAPI createForm:testForm 
                   success:^(void){
                       NSLog(@"Form created!");
+                      [self getForms];
                   } 
                   failure:^(NSError* error, NSArray* validationErrors){
                       NSLog(@"Dang: %@ ... %@", error, validationErrors);
