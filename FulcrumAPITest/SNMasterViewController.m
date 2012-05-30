@@ -19,6 +19,8 @@
 #import "SNFormChoiceFieldElement.h"
 #import "SNClassificationSet.h"
 #import "SNClassificationSetItem.h"
+#import "SNChoiceList.h"
+#import "SNChoiceListItem.h"
 
 @interface SNMasterViewController () {
     NSMutableArray *_objects;
@@ -60,9 +62,13 @@
 
 //    [self getForms];
 //    [self createTestForm];
-    [self createClassificationSet];
+//    [self createClassificationSet];
     
-    [self getClassificationSets];
+//    [self getClassificationSets];
+//    [self getChoiceLists];
+    [self createChoiceList];
+//    [self getChoiceLists];
+
 }
 
 - (void) getForms
@@ -77,143 +83,6 @@
                       failure:^(NSError* error) {
                           NSLog(@"dang: %@", error);
                       }];    
-}
-
-- (void) createTestForm
-{
-    SNForm* testForm = [[SNForm alloc] init];
-    
-    testForm.name = @"Test API Form";
-    testForm.description = @"Form made from API";
-        
-    for (int x = 0; x < 10; x++) {
-        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
-        textElement.label = [NSString stringWithFormat:@"Text field #%d", x];
-        textElement.dataName = @"text_foo";
-        [testForm.rootSectionElement.elements addObject:textElement];
-        [textElement release];
-    }
-    
-    SNFormChoiceFieldElement* choiceElement = [[SNFormChoiceFieldElement alloc] init];
-    choiceElement.multiple = NO;
-    choiceElement.allowOther = NO;
-    choiceElement.dataName = @"test_choice";
-    choiceElement.label = @"Test Choice, no Multiple, no Other";
-    [choiceElement addLabel:@"A" withValue:@"A"];
-    [choiceElement addLabel:@"B" withValue:@"B"];
-    [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
-    [choiceElement release];
-    
-    choiceElement = [[SNFormChoiceFieldElement alloc] init];
-    choiceElement.multiple = YES;
-    choiceElement.allowOther = NO;
-    choiceElement.dataName = @"test_choice";
-    choiceElement.label = @"Test Choice, with Multiple, no Other";
-    [choiceElement addLabel:@"A" withValue:@"A"];
-    [choiceElement addLabel:@"B" withValue:@"B"];
-    [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
-    [choiceElement release];
-    
-    choiceElement = [[SNFormChoiceFieldElement alloc] init];
-    choiceElement.multiple = YES;
-    choiceElement.allowOther = YES;
-    choiceElement.dataName = @"test_choice";
-    choiceElement.label = @"Test Choice, with Multiple, With Other";
-    [choiceElement addLabel:@"A" withValue:@"A"];
-    [choiceElement addLabel:@"B" withValue:@"B"];
-    [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
-    [choiceElement release];
-    
-    choiceElement = [[SNFormChoiceFieldElement alloc] init];
-    choiceElement.multiple = NO;
-    choiceElement.allowOther = YES;
-    choiceElement.dataName = @"test_choice";
-    choiceElement.label = @"Test Choice, no Multiple, with Other";
-    [choiceElement addLabel:@"A" withValue:@"A"];
-    [choiceElement addLabel:@"B" withValue:@"B"];
-    [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
-    [choiceElement release];
-    
-    SNFormSectionElement* testSection = [[SNFormSectionElement alloc] init];
-    testSection.label = @"Some section";
-    testSection.dataName = @"test_sec";
-    
-    for (int x = 0; x < 5; x++) {
-        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
-        textElement.label = [NSString stringWithFormat:@"Section Text field #%d", x];
-        textElement.dataName = @"text_foo";
-        [testSection.elements addObject:textElement];
-        [textElement release];
-    }
-    
-    [testForm.rootSectionElement.elements addObject:testSection];
-    
-    [SNFormAPI createForm:testForm 
-              success:^(void){
-                  NSLog(@"Form created!");
-              } 
-              failure:^(NSError* error, NSArray* validationErrors){
-                  NSLog(@"Dang: %@ ... %@", error, validationErrors);
-              }
-     ];    
-}
-
-- (void) getClassificationSets
-{
-    [SNClassificationSetAPI getClassificationSetsSuccess:^(NSArray* sets) {
-//        NSLog(@"SETS: %@", sets);
-    } 
-                                                 failure:^(NSError* error){
-                                                     NSLog(@"dang, sets error: %@", error);
-                                                 }];
-}
-
-- (void) createClassificationSet
-{
-    SNClassificationSet* classificationSet = [[SNClassificationSet alloc] init];
-    
-    classificationSet.name = @"Classy";
-    classificationSet.label = @"Wat?";
-    classificationSet.description = @"Classify";
-    
-    for (int x = 0; x < 10; x++) {
-        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
-        item.label = [NSString stringWithFormat:@"label %d", x];
-        item.value = [NSString stringWithFormat:@"value %d", x];
-        [classificationSet.items addObject:item];
-        [item release];
-    }
-    
-    SNClassificationSetItem* nestedItem = [[SNClassificationSetItem alloc] init];
-    
-    nestedItem.label = @"Testing";
-    nestedItem.value = @"Testing";
-    
-    for (int x = 0; x < 4; x++) {
-        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
-        item.label = [NSString stringWithFormat:@"label %d", x];
-        item.value = [NSString stringWithFormat:@"value %d", x];
-        [nestedItem.childClassifications addObject:item];
-        [item release];
-    }
-    
-    [classificationSet.items addObject:nestedItem];
-    
-    [nestedItem release];
-        
-    [SNClassificationSetAPI createClassificationSet:classificationSet 
-                                            success:^(void){
-                                                NSLog(@"great success!!");
-                                            } 
-                                            failure:^(NSError* error, NSArray* validationErrors) {
-                                                NSLog(@"Dang, error making set: %@... validation errors: %@", error, validationErrors);
-                                            }];
-    
-    [classificationSet release];
 }
 
 - (void)viewDidUnload
@@ -316,6 +185,179 @@
     } else {
         self.detailViewController.detailItem = object;
     }
+}
+
+#pragma mark -
+#pragma mark Hacky test methods
+
+- (void) createTestForm
+{
+    SNForm* testForm = [[SNForm alloc] init];
+    
+    testForm.name = @"Test API Form";
+    testForm.description = @"Form made from API";
+    
+    for (int x = 0; x < 10; x++) {
+        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
+        textElement.label = [NSString stringWithFormat:@"Text field #%d", x];
+        textElement.dataName = @"text_foo";
+        [testForm.rootSectionElement.elements addObject:textElement];
+        [textElement release];
+    }
+    
+    SNFormChoiceFieldElement* choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = NO;
+    choiceElement.allowOther = NO;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, no Multiple, no Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = YES;
+    choiceElement.allowOther = NO;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, with Multiple, no Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = YES;
+    choiceElement.allowOther = YES;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, with Multiple, With Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    choiceElement = [[SNFormChoiceFieldElement alloc] init];
+    choiceElement.multiple = NO;
+    choiceElement.allowOther = YES;
+    choiceElement.dataName = @"test_choice";
+    choiceElement.label = @"Test Choice, no Multiple, with Other";
+    [choiceElement addLabel:@"A" withValue:@"A"];
+    [choiceElement addLabel:@"B" withValue:@"B"];
+    [choiceElement addLabel:@"C" withValue:@"C"];
+    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [choiceElement release];
+    
+    SNFormSectionElement* testSection = [[SNFormSectionElement alloc] init];
+    testSection.label = @"Some section";
+    testSection.dataName = @"test_sec";
+    
+    for (int x = 0; x < 5; x++) {
+        SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
+        textElement.label = [NSString stringWithFormat:@"Section Text field #%d", x];
+        textElement.dataName = @"text_foo";
+        [testSection.elements addObject:textElement];
+        [textElement release];
+    }
+    
+    [testForm.rootSectionElement.elements addObject:testSection];
+    
+    [SNFormAPI createForm:testForm 
+                  success:^(void){
+                      NSLog(@"Form created!");
+                  } 
+                  failure:^(NSError* error, NSArray* validationErrors){
+                      NSLog(@"Dang: %@ ... %@", error, validationErrors);
+                  }
+     ];    
+}
+
+- (void) getClassificationSets
+{
+    [SNClassificationSetAPI getClassificationSetsSuccess:^(NSArray* sets) {
+        //        NSLog(@"SETS: %@", sets);
+    } 
+                                                 failure:^(NSError* error){
+                                                     NSLog(@"dang, sets error: %@", error);
+                                                 }];
+}
+
+- (void) createClassificationSet
+{
+    SNClassificationSet* classificationSet = [[SNClassificationSet alloc] init];
+    
+    classificationSet.name = @"Classy";
+    classificationSet.label = @"Wat?";
+    classificationSet.description = @"Classify";
+    
+    for (int x = 0; x < 10; x++) {
+        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
+        item.label = [NSString stringWithFormat:@"label %d", x];
+        item.value = [NSString stringWithFormat:@"value %d", x];
+        [classificationSet.items addObject:item];
+        [item release];
+    }
+    
+    SNClassificationSetItem* nestedItem = [[SNClassificationSetItem alloc] init];
+    
+    nestedItem.label = @"Testing";
+    nestedItem.value = @"Testing";
+    
+    for (int x = 0; x < 4; x++) {
+        SNClassificationSetItem* item = [[SNClassificationSetItem alloc] init];
+        item.label = [NSString stringWithFormat:@"label %d", x];
+        item.value = [NSString stringWithFormat:@"value %d", x];
+        [nestedItem.childClassifications addObject:item];
+        [item release];
+    }
+    
+    [classificationSet.items addObject:nestedItem];
+    
+    [nestedItem release];
+    
+    [SNClassificationSetAPI createClassificationSet:classificationSet 
+                                            success:^(void){
+                                                NSLog(@"great success!!");
+                                            } 
+                                            failure:^(NSError* error, NSArray* validationErrors) {
+                                                NSLog(@"Dang, error making set: %@... validation errors: %@", error, validationErrors);
+                                            }];
+    
+    [classificationSet release];
+}
+
+- (void) getChoiceLists
+{
+    [SNChoiceListAPI getChoiceListsSuccess:^(NSArray* choiceLists) {
+        NSLog(@"boom: %@", choiceLists);
+    } 
+                                   failure:^(NSError* error){
+                                       NSLog(@"dang, error getting choice lists: %@", error);
+                                   }];
+}
+
+- (void) createChoiceList
+{
+    SNChoiceList* choiceList = [[SNChoiceList alloc] init];
+    
+    choiceList.name = @"Choosey";
+    choiceList.description = @"Sample choice list";
+    
+    for (int x = 0; x < 10; x++) {
+        SNChoiceListItem* item = [[SNChoiceListItem alloc] init];
+        item.label = [NSString stringWithFormat:@"choice %d", x];
+        item.value = item.label;
+        [choiceList.choices addObject:item];
+    }
+    
+    [SNChoiceListAPI createChoiceList:choiceList 
+                              success:^(void){
+                                  NSLog(@"MAKE YOUR CHOICE");
+                              } 
+                              failure:^(NSError* error, NSArray* validationErrors) {
+                                  NSLog(@"dang, couldn't make choice list: %@ ... %@", error, validationErrors);
+                              }];
 }
 
 @end

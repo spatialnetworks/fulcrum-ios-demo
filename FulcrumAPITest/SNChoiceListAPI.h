@@ -11,9 +11,9 @@
 
 @interface SNChoiceListAPI : NSObject
 
-+ (void) getChoiceListsSuccess:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure;
-+ (void) deleteChoiceList:(SNChoiceList*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-+ (void) updateChoiceList:(SNChoiceList*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-+ (void) createChoiceList:(SNChoiceList*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
++ (void) getChoiceListsSuccess:(void (^)(NSArray* choiceLists))success failure:(void (^)(NSError* error))failure;
++ (void) deleteChoiceList:(SNChoiceList*)choiceList success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) updateChoiceList:(SNChoiceList*)choiceList success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) createChoiceList:(SNChoiceList*)choiceList success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
 
 @end

@@ -10,8 +10,12 @@
 
 @interface SNChoiceList : NSObject
 
+- (NSMutableDictionary*) attributes;
+- (id)initWithAttributes:(NSDictionary*)attributes;
+
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSMutableArray* choices;
 @property (nonatomic, retain) NSString* description;
+@property (nonatomic, retain) NSString* id;
 
 @end

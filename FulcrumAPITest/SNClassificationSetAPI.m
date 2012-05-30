@@ -9,17 +9,19 @@
 #import "SNClassificationSetAPI.h"
 #import "SNFulcrumAPIClient.h"
 
+#define CLASSIFICATION_SET_PATH @"classification_sets"
+
 @implementation SNClassificationSetAPI
 
 + (void) getClassificationSetsSuccess:(void (^)(NSArray* sets))success failure:(void (^)(NSError* error))failure {
     NSMutableArray* results = [NSMutableArray array];
     
-    [[SNFulcrumAPIClient sharedInstance] getPath:@"classification_sets" parameters:nil
+    [[SNFulcrumAPIClient sharedInstance] getPath:CLASSIFICATION_SET_PATH parameters:nil
                                          success:^(AFHTTPRequestOperation *operation, id response) {
                                              
 //                                             NSLog(@"RESPONSE: %@", response);
                                              
-                                             NSArray* sets = [response objectForKey:@"classification_sets"];
+                                             NSArray* sets = [response objectForKey:@"classification_set"];
 
                                              for (NSDictionary* classificationSetDict in sets)
                                              {
@@ -44,7 +46,7 @@
 }
 
 + (void) deleteClassificationSet:(SNClassificationSet*)set success:(void (^)())success failure:(void (^)(NSError* error))failure {
-    NSString* path = [NSString stringWithFormat:@"classification_sets/%@", set.id];
+    NSString* path = [NSString stringWithFormat:@"%@/%@", CLASSIFICATION_SET_PATH, set.id];
     
     [[SNFulcrumAPIClient sharedInstance] deletePath:path parameters:nil 
                                             success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -56,9 +58,9 @@
 }
 
 + (void) updateClassificationSet:(SNClassificationSet*)set success:(void (^)())success failure:(void (^)(NSError* error))failure {
-    NSString* path = [NSString stringWithFormat:@"forms/%@", set.id];
+    NSString* path = [NSString stringWithFormat:@"%@/%@", CLASSIFICATION_SET_PATH, set.id];
     
-    [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:nil
+    [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:set.attributes
                                          success:^(AFHTTPRequestOperation* operation, id responseObject) {
                                              if (success) success();
                                          } 
@@ -69,7 +71,7 @@
 
 + (void) createClassificationSet:(SNClassificationSet*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
 {
-    [[SNFulcrumAPIClient sharedInstance] postPath:@"classification_sets" parameters:form.attributes 
+    [[SNFulcrumAPIClient sharedInstance] postPath:CLASSIFICATION_SET_PATH parameters:form.attributes 
                                           success:^(AFHTTPRequestOperation* operation, id responseObject){
                                               if (success) success();
                                           }

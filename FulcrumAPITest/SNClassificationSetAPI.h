@@ -11,9 +11,9 @@
 
 @interface SNClassificationSetAPI : NSObject
 
-+ (void) getClassificationSetsSuccess:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure;
-+ (void) deleteClassificationSet:(SNClassificationSet*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-+ (void) updateClassificationSet:(SNClassificationSet*)form success:(void (^)())success failure:(void (^)(NSError* error))failure;
-+ (void) createClassificationSet:(SNClassificationSet*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
++ (void) getClassificationSetsSuccess:(void (^)(NSArray* classificationSets))success failure:(void (^)(NSError* error))failure;
++ (void) deleteClassificationSet:(SNClassificationSet*)classificationSet success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) updateClassificationSet:(SNClassificationSet*)classificationSet success:(void (^)())success failure:(void (^)(NSError* error))failure;
++ (void) createClassificationSet:(SNClassificationSet*)classificationSet success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure;
 
 @end

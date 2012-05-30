@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNChoiceItem : NSObject
+@interface SNChoiceListItem : NSObject
 
 - (NSMutableDictionary*) attributes;
 

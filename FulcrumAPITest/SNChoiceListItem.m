@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
-#import "SNChoiceItem.h"
+#import "SNChoiceListItem.h"
 
-@implementation SNChoiceItem
+@implementation SNChoiceListItem
 
 @synthesize label = _label;
 @synthesize value = _value;

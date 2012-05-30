@@ -13,7 +13,7 @@
 		21B9C53715757277000DFFAF /* SNClassificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53615757277000DFFAF /* SNClassificationSet.m */; };
 		21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C539157575DE000DFFAF /* SNClassificationSetItem.m */; };
 		21B9C53D15757F32000DFFAF /* SNChoiceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53C15757F32000DFFAF /* SNChoiceList.m */; };
-		21B9C54015758079000DFFAF /* SNChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53F15758079000DFFAF /* SNChoiceItem.m */; };
+		21B9C54015758079000DFFAF /* SNChoiceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53F15758079000DFFAF /* SNChoiceListItem.m */; };
 		21B9C54415765BC2000DFFAF /* SNClassificationSetAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C54315765BC2000DFFAF /* SNClassificationSetAPI.m */; };
 		21B9C54715765BCE000DFFAF /* SNChoiceListAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C54615765BCE000DFFAF /* SNChoiceListAPI.m */; };
 		21F40966156FC9350012A1F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40965156FC9350012A1F1 /* UIKit.framework */; };
@@ -90,8 +90,8 @@
 		21B9C539157575DE000DFFAF /* SNClassificationSetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetItem.m; sourceTree = "<group>"; };
 		21B9C53B15757F32000DFFAF /* SNChoiceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceList.h; sourceTree = "<group>"; };
 		21B9C53C15757F32000DFFAF /* SNChoiceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceList.m; sourceTree = "<group>"; };
-		21B9C53E15758079000DFFAF /* SNChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceItem.h; sourceTree = "<group>"; };
-		21B9C53F15758079000DFFAF /* SNChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceItem.m; sourceTree = "<group>"; };
+		21B9C53E15758079000DFFAF /* SNChoiceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SNChoiceListItem.h; sourceTree = "<group>"; };
+		21B9C53F15758079000DFFAF /* SNChoiceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListItem.m; sourceTree = "<group>"; };
 		21B9C54215765BC2000DFFAF /* SNClassificationSetAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSetAPI.h; sourceTree = "<group>"; };
 		21B9C54315765BC2000DFFAF /* SNClassificationSetAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetAPI.m; sourceTree = "<group>"; };
 		21B9C54515765BCE000DFFAF /* SNChoiceListAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListAPI.h; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 			children = (
 				21B9C53B15757F32000DFFAF /* SNChoiceList.h */,
 				21B9C53C15757F32000DFFAF /* SNChoiceList.m */,
-				21B9C53E15758079000DFFAF /* SNChoiceItem.h */,
-				21B9C53F15758079000DFFAF /* SNChoiceItem.m */,
+				21B9C53E15758079000DFFAF /* SNChoiceListItem.h */,
+				21B9C53F15758079000DFFAF /* SNChoiceListItem.m */,
 			);
 			name = "Choice Lists";
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 				21B9C53715757277000DFFAF /* SNClassificationSet.m in Sources */,
 				21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */,
 				21B9C53D15757F32000DFFAF /* SNChoiceList.m in Sources */,
-				21B9C54015758079000DFFAF /* SNChoiceItem.m in Sources */,
+				21B9C54015758079000DFFAF /* SNChoiceListItem.m in Sources */,
 				21B9C54415765BC2000DFFAF /* SNClassificationSetAPI.m in Sources */,
 				21B9C54715765BCE000DFFAF /* SNChoiceListAPI.m in Sources */,
 			);

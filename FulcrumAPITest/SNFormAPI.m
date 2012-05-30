@@ -64,7 +64,7 @@
 {
     NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
 
-    [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:nil
+    [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:form.attributes
                                          success:^(AFHTTPRequestOperation* operation, id responseObject) {
                                              if (success) success();
                                          } 
