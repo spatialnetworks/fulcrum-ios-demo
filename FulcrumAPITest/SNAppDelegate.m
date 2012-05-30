@@ -43,12 +43,15 @@
 
         SNFormsViewController* formsController = [[[SNFormsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
         UINavigationController* formsNav = [[[UINavigationController alloc] initWithRootViewController:formsController] autorelease];
+        formsNav.navigationBar.barStyle = UIBarStyleBlack;
         
         SNClassificationSetsViewController* classificationController = [[[SNClassificationSetsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
         UINavigationController* classNav = [[[UINavigationController alloc] initWithRootViewController:classificationController] autorelease];
+        classNav.navigationBar.barStyle = UIBarStyleBlack;
         
         SNChoiceListsViewController* choiceController = [[[SNChoiceListsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
         UINavigationController* choiceNav = [[[UINavigationController alloc] initWithRootViewController:choiceController] autorelease];
+        choiceNav.navigationBar.barStyle = UIBarStyleBlack;
         
         NSMutableArray* viewControllers = [NSMutableArray array];
         [viewControllers addObject:formsNav];
