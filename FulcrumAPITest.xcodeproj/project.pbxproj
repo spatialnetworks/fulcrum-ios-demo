@@ -34,6 +34,7 @@
 		21B9C5761576B745000DFFAF /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C56E1576B745000DFFAF /* SSPullToRefreshDefaultContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		21B9C57A1576BB9D000DFFAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5791576BB9D000DFFAF /* README.md */; };
 		21F40966156FC9350012A1F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40965156FC9350012A1F1 /* UIKit.framework */; };
 		21F40968156FC9350012A1F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40967156FC9350012A1F1 /* Foundation.framework */; };
 		21F4096A156FC9350012A1F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40969156FC9350012A1F1 /* CoreGraphics.framework */; };
@@ -139,6 +140,7 @@
 		21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
 		21B9C5711576B745000DFFAF /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
 		21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
+		21B9C5791576BB9D000DFFAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		21F40961156FC9350012A1F1 /* FulcrumAPITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulcrumAPITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F40965156FC9350012A1F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21F40967156FC9350012A1F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,6 +340,7 @@
 		21F40956156FC9350012A1F1 = {
 			isa = PBXGroup;
 			children = (
+				21B9C5791576BB9D000DFFAF /* README.md */,
 				21B9C5681576B745000DFFAF /* SSPullToRefresh */,
 				21F409A6156FC97A0012A1F1 /* AFNetworking */,
 				21F4096B156FC9350012A1F1 /* FulcrumAPITest */,
@@ -553,6 +556,7 @@
 				21B9C5731576B745000DFFAF /* LICENSE in Resources */,
 				21B9C5741576B745000DFFAF /* Readme.markdown in Resources */,
 				21B9C5751576B745000DFFAF /* SSPullToRefresh.podspec in Resources */,
+				21B9C57A1576BB9D000DFFAF /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
