@@ -14,6 +14,8 @@
 		21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C539157575DE000DFFAF /* SNClassificationSetItem.m */; };
 		21B9C53D15757F32000DFFAF /* SNChoiceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53C15757F32000DFFAF /* SNChoiceList.m */; };
 		21B9C54015758079000DFFAF /* SNChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53F15758079000DFFAF /* SNChoiceItem.m */; };
+		21B9C54415765BC2000DFFAF /* SNClassificationSetAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C54315765BC2000DFFAF /* SNClassificationSetAPI.m */; };
+		21B9C54715765BCE000DFFAF /* SNChoiceListAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C54615765BCE000DFFAF /* SNChoiceListAPI.m */; };
 		21F40966156FC9350012A1F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40965156FC9350012A1F1 /* UIKit.framework */; };
 		21F40968156FC9350012A1F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40967156FC9350012A1F1 /* Foundation.framework */; };
 		21F4096A156FC9350012A1F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40969156FC9350012A1F1 /* CoreGraphics.framework */; };
@@ -90,6 +92,10 @@
 		21B9C53C15757F32000DFFAF /* SNChoiceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceList.m; sourceTree = "<group>"; };
 		21B9C53E15758079000DFFAF /* SNChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceItem.h; sourceTree = "<group>"; };
 		21B9C53F15758079000DFFAF /* SNChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceItem.m; sourceTree = "<group>"; };
+		21B9C54215765BC2000DFFAF /* SNClassificationSetAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSetAPI.h; sourceTree = "<group>"; };
+		21B9C54315765BC2000DFFAF /* SNClassificationSetAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetAPI.m; sourceTree = "<group>"; };
+		21B9C54515765BCE000DFFAF /* SNChoiceListAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListAPI.h; sourceTree = "<group>"; };
+		21B9C54615765BCE000DFFAF /* SNChoiceListAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListAPI.m; sourceTree = "<group>"; };
 		21F40961156FC9350012A1F1 /* FulcrumAPITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulcrumAPITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F40965156FC9350012A1F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21F40967156FC9350012A1F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,6 +229,21 @@
 			name = Records;
 			sourceTree = "<group>";
 		};
+		21B9C54115765B22000DFFAF /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				21F409D1156FCC6D0012A1F1 /* SNFulcrumAPIClient.h */,
+				21F409D2156FCC6D0012A1F1 /* SNFulcrumAPIClient.m */,
+				21F409D5156FD3160012A1F1 /* SNFormAPI.h */,
+				21F409D6156FD3160012A1F1 /* SNFormAPI.m */,
+				21B9C54215765BC2000DFFAF /* SNClassificationSetAPI.h */,
+				21B9C54315765BC2000DFFAF /* SNClassificationSetAPI.m */,
+				21B9C54515765BCE000DFFAF /* SNChoiceListAPI.h */,
+				21B9C54615765BCE000DFFAF /* SNChoiceListAPI.m */,
+			);
+			name = APIClient;
+			sourceTree = "<group>";
+		};
 		21F40956156FC9350012A1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -334,11 +355,8 @@
 		21F409D0156FCC4D0012A1F1 /* FulcrumAPIClient */ = {
 			isa = PBXGroup;
 			children = (
+				21B9C54115765B22000DFFAF /* APIClient */,
 				21F409DD156FD9F90012A1F1 /* Model */,
-				21F409D1156FCC6D0012A1F1 /* SNFulcrumAPIClient.h */,
-				21F409D2156FCC6D0012A1F1 /* SNFulcrumAPIClient.m */,
-				21F409D5156FD3160012A1F1 /* SNFormAPI.h */,
-				21F409D6156FD3160012A1F1 /* SNFormAPI.m */,
 			);
 			name = FulcrumAPIClient;
 			sourceTree = "<group>";
@@ -491,6 +509,8 @@
 				21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */,
 				21B9C53D15757F32000DFFAF /* SNChoiceList.m in Sources */,
 				21B9C54015758079000DFFAF /* SNChoiceItem.m in Sources */,
+				21B9C54415765BC2000DFFAF /* SNClassificationSetAPI.m in Sources */,
+				21B9C54715765BCE000DFFAF /* SNChoiceListAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

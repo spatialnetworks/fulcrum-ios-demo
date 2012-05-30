@@ -23,12 +23,24 @@
     return self;
 }
 
+- (id)initWithAttributes:(NSDictionary*)attributes
+{
+    self = [super init];
+    if (self) {
+        self.label = [attributes objectForKey:@"label"];
+        self.value = [attributes objectForKey:@"value"];
+        
+        self.childClassifications = [attributes objectForKey:@"child_classifications"];
+    }
+    return self;
+}
+
 - (NSMutableDictionary*) attributes
 {
     NSMutableDictionary* attributes = [NSMutableDictionary dictionary];
     
-    [attributes setObject:self.label forKey:@"label"];
-    [attributes setObject:self.value forKey:@"value"];
+    if (self.label) [attributes setObject:self.label forKey:@"label"];
+    if (self.value) [attributes setObject:self.value forKey:@"value"];
     
     NSMutableArray* childClassificationAttributes = [NSMutableArray array];
     if (self.childClassifications && [self.childClassifications count] > 0) {

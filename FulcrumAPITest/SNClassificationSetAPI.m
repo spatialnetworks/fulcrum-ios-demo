@@ -1,42 +1,39 @@
 //
-//  SNFormAPI.m
+//  SNClassificationSetAPI.m
 //  FulcrumAPITest
 //
-//  Created by Ben Rigas on 5/25/12.
-//  Copyright (c) 2012 Spatial Networks. All rights reserved.
+//  Created by Ben Rigas on 5/30/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SNFormAPI.h"
+#import "SNClassificationSetAPI.h"
 #import "SNFulcrumAPIClient.h"
 
-@implementation SNFormAPI
+@implementation SNClassificationSetAPI
 
-+ (void) getFormsWithSchema:(BOOL)withData success:(void (^)(NSArray* forms))success failure:(void (^)(NSError* error))failure
-{
-    NSMutableArray* formResults = [NSMutableArray array];
++ (void) getClassificationSetsSuccess:(void (^)(NSArray* sets))success failure:(void (^)(NSError* error))failure {
+    NSMutableArray* results = [NSMutableArray array];
     
-    NSMutableDictionary* params = [NSMutableDictionary dictionary];
-    if (!withData)
-    {
-        [params setObject:@"false" forKey:@"schema"];
-    }
-    
-    [[SNFulcrumAPIClient sharedInstance] getPath:@"forms" parameters:params
+    [[SNFulcrumAPIClient sharedInstance] getPath:@"classification_sets" parameters:nil
                                          success:^(AFHTTPRequestOperation *operation, id response) {
-                                             NSArray* forms = [response objectForKey:@"forms"];
-                                             for (NSDictionary* formDict in forms)
-                                             {
-                                                 SNForm* form = [[SNForm alloc] initWithAttributes:formDict];
-                                                 [formResults addObject:form];
-                                                 NSLog(@"==");
-                                                 NSLog(@"%@", formDict);
-                                                 NSLog(@"==");
+                                             
+//                                             NSLog(@"RESPONSE: %@", response);
+                                             
+                                             NSArray* sets = [response objectForKey:@"classification_sets"];
 
-                                                 [form release];
+                                             for (NSDictionary* classificationSetDict in sets)
+                                             {
+                                                 SNClassificationSet* classification = [[SNClassificationSet alloc] initWithAttributes:classificationSetDict];
+                                                 [results addObject:classification];
+//                                                 NSLog(@"==");
+//                                                 NSLog(@"%@", classificationSetDict);
+//                                                 NSLog(@"==");
+                                                 
+                                                 [classification release];
                                              }
                                              
                                              if (success) {
-                                                 success(formResults);
+                                                 success(results);
                                              }
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -46,10 +43,8 @@
                                          }];
 }
 
-
-+ (void) deleteForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
-{
-    NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
++ (void) deleteClassificationSet:(SNClassificationSet*)set success:(void (^)())success failure:(void (^)(NSError* error))failure {
+    NSString* path = [NSString stringWithFormat:@"classification_sets/%@", set.id];
     
     [[SNFulcrumAPIClient sharedInstance] deletePath:path parameters:nil 
                                             success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -60,10 +55,9 @@
                                             }];
 }
 
-+ (void) updateForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error))failure
-{
-    NSString* path = [NSString stringWithFormat:@"forms/%@", form.id];
-
++ (void) updateClassificationSet:(SNClassificationSet*)set success:(void (^)())success failure:(void (^)(NSError* error))failure {
+    NSString* path = [NSString stringWithFormat:@"forms/%@", set.id];
+    
     [[SNFulcrumAPIClient sharedInstance] putPath:path parameters:nil
                                          success:^(AFHTTPRequestOperation* operation, id responseObject) {
                                              if (success) success();
@@ -73,9 +67,9 @@
                                          }];
 }
 
-+ (void) createForm:(SNForm*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
++ (void) createClassificationSet:(SNClassificationSet*)form success:(void (^)())success failure:(void (^)(NSError* error, NSArray* validationErrors))failure
 {
-    [[SNFulcrumAPIClient sharedInstance] postPath:@"forms" parameters:form.attributes 
+    [[SNFulcrumAPIClient sharedInstance] postPath:@"classification_sets" parameters:form.attributes 
                                           success:^(AFHTTPRequestOperation* operation, id responseObject){
                                               if (success) success();
                                           }
@@ -84,7 +78,7 @@
                                               NSMutableDictionary* errorsDict = AFJSONDecode(operation.responseData, &parseError);
                                               if (!parseError)
                                               {
-                                                  if (failure) failure(error, [[errorsDict objectForKey:@"form"] objectForKey:@"errors"]);
+                                                  if (failure) failure(error, [[errorsDict objectForKey:@"classification_sets"] objectForKey:@"errors"]);
                                               }
                                               else {
                                                   if (failure) failure(error, nil);

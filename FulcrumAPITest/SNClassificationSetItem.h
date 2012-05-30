@@ -10,6 +10,7 @@
 
 @interface SNClassificationSetItem : NSObject
 
+- (id) initWithAttributes:(NSDictionary*)attributes;
 - (NSMutableDictionary*) attributes;
 
 @property (nonatomic, retain) NSString* label;

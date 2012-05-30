@@ -11,6 +11,9 @@
 #import "SNDetailViewController.h"
 
 #import "SNFormAPI.h"
+#import "SNChoiceListAPI.h"
+#import "SNClassificationSetAPI.h"
+
 #import "SNFormSectionElement.h"
 #import "SNFormTextFieldElement.h"
 #import "SNFormChoiceFieldElement.h"
@@ -58,6 +61,8 @@
 //    [self getForms];
 //    [self createTestForm];
     [self createClassificationSet];
+    
+    [self getClassificationSets];
 }
 
 - (void) getForms
@@ -157,6 +162,16 @@
      ];    
 }
 
+- (void) getClassificationSets
+{
+    [SNClassificationSetAPI getClassificationSetsSuccess:^(NSArray* sets) {
+//        NSLog(@"SETS: %@", sets);
+    } 
+                                                 failure:^(NSError* error){
+                                                     NSLog(@"dang, sets error: %@", error);
+                                                 }];
+}
+
 - (void) createClassificationSet
 {
     SNClassificationSet* classificationSet = [[SNClassificationSet alloc] init];
@@ -189,8 +204,14 @@
     [classificationSet.items addObject:nestedItem];
     
     [nestedItem release];
-    
-    NSLog(@"CS: %@", classificationSet.attributes);
+        
+    [SNClassificationSetAPI createClassificationSet:classificationSet 
+                                            success:^(void){
+                                                NSLog(@"great success!!");
+                                            } 
+                                            failure:^(NSError* error, NSArray* validationErrors) {
+                                                NSLog(@"Dang, error making set: %@... validation errors: %@", error, validationErrors);
+                                            }];
     
     [classificationSet release];
 }
