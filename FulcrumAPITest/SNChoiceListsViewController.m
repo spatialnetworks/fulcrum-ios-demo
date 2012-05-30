@@ -12,6 +12,7 @@
 @interface SNChoiceListsViewController ()
 
 @property (nonatomic, retain) NSArray* choiceLists;
+@property (nonatomic, retain) SSPullToRefreshView* pullToRefreshView;
 
 @end
 
@@ -19,6 +20,7 @@
 
 @synthesize tableView = _tableView;
 @synthesize choiceLists = _choiceLists;
+@synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,12 +38,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
+
     [self fetchChoiceLists];
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
+    self.pullToRefreshView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -50,6 +55,21 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark SSPullToRefresh
+
+- (void)refresh {
+    [self.pullToRefreshView startLoading];
+    // Load data...
+    [self fetchChoiceLists];
+    
+    [self.pullToRefreshView finishLoading];
+}
+
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
+    [self refresh];
 }
 
 #pragma mark -
@@ -102,6 +122,7 @@
 - (void)dealloc {
     [_tableView release];
     [_choiceLists release];
+    [_pullToRefreshView release];
     
     [super dealloc];
 }

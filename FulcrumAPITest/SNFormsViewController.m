@@ -13,12 +13,13 @@
 @interface SNFormsViewController ()
 
 @property (nonatomic, retain) NSArray* forms;
+@property (nonatomic, retain) SSPullToRefreshView* pullToRefreshView;
 
 @end
 
 @implementation SNFormsViewController
 @synthesize tableView = _tableView;
-
+@synthesize pullToRefreshView = _pullToRefreshView;
 @synthesize forms = _forms;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,12 +39,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
+    
     [self fetchForms];
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
+    self.pullToRefreshView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,6 +56,21 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark SSPullToRefresh
+
+- (void)refresh {
+    [self.pullToRefreshView startLoading];
+    // Load data...
+    [self fetchForms];
+    
+    [self.pullToRefreshView finishLoading];
+}
+
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
+    [self refresh];
 }
 
 #pragma mark -
@@ -105,6 +124,7 @@
 - (void)dealloc {
     [_tableView release];
     [_forms release];
+    [_pullToRefreshView release];
     [super dealloc];
 }
 @end
