@@ -8,3 +8,4 @@ This sample demonstrates using the Fulcrum API in an iOS application.
 * UI for Classification Set view, edit, delete
 * UI for Choice List view, edit, delete
 * Fix 'update' API calls to read validation errors, similar to 'create'
+* Fix 'pull to refresh' to not finish immediately, need 'completed' block in fetch methods
