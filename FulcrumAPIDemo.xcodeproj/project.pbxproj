@@ -35,6 +35,8 @@
 		21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		21B9C57A1576BB9D000DFFAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5791576BB9D000DFFAF /* README.md */; };
+		21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */; };
+		21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */; };
 		21F40966156FC9350012A1F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40965156FC9350012A1F1 /* UIKit.framework */; };
 		21F40968156FC9350012A1F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40967156FC9350012A1F1 /* Foundation.framework */; };
 		21F4096A156FC9350012A1F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40969156FC9350012A1F1 /* CoreGraphics.framework */; };
@@ -141,14 +143,17 @@
 		21B9C5711576B745000DFFAF /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
 		21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		21B9C5791576BB9D000DFFAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		21F40961156FC9350012A1F1 /* FulcrumAPITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulcrumAPITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21B9C57E1577B264000DFFAF /* SNChoiceListEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListEditViewController.h; sourceTree = "<group>"; };
+		21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListEditViewController.m; sourceTree = "<group>"; };
+		21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNChoiceListEditViewController.xib; sourceTree = "<group>"; };
+		21F40961156FC9350012A1F1 /* FulcrumAPIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulcrumAPIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F40965156FC9350012A1F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21F40967156FC9350012A1F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21F40969156FC9350012A1F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		21F4096D156FC9350012A1F1 /* FulcrumAPITest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FulcrumAPITest-Info.plist"; sourceTree = "<group>"; };
+		21F4096D156FC9350012A1F1 /* FulcrumAPIDemo-Info.plist */ = {isa = PBXFileReference; path = "FulcrumAPIDemo-Info.plist"; sourceTree = "<group>"; };
 		21F4096F156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21F40971156FC9350012A1F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		21F40973156FC9350012A1F1 /* FulcrumAPITest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FulcrumAPITest-Prefix.pch"; sourceTree = "<group>"; };
+		21F40973156FC9350012A1F1 /* FulcrumAPIDemo-Prefix.pch */ = {isa = PBXFileReference; path = "FulcrumAPIDemo-Prefix.pch"; sourceTree = "<group>"; };
 		21F40974156FC9350012A1F1 /* SNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNAppDelegate.h; sourceTree = "<group>"; };
 		21F40975156FC9350012A1F1 /* SNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAppDelegate.m; sourceTree = "<group>"; };
 		21F40977156FC9350012A1F1 /* SNMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNMasterViewController.h; sourceTree = "<group>"; };
@@ -159,9 +164,9 @@
 		21F40981156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SNMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		21F40984156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SNDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		21F40987156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SNDetailViewController_iPad.xib; sourceTree = "<group>"; };
-		21F4098E156FC9360012A1F1 /* FulcrumAPITestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FulcrumAPITestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F4098E156FC9360012A1F1 /* FulcrumAPIDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FulcrumAPIDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F4098F156FC9360012A1F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		21F40997156FC9360012A1F1 /* FulcrumAPITestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FulcrumAPITestTests-Info.plist"; sourceTree = "<group>"; };
+		21F40997156FC9360012A1F1 /* FulcrumAPIDemoTests-Info.plist */ = {isa = PBXFileReference; path = "FulcrumAPIDemoTests-Info.plist"; sourceTree = "<group>"; };
 		21F40999156FC9360012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21F4099B156FC9360012A1F1 /* FulcrumAPITestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FulcrumAPITestTests.h; sourceTree = "<group>"; };
 		21F4099C156FC9360012A1F1 /* FulcrumAPITestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FulcrumAPITestTests.m; sourceTree = "<group>"; };
@@ -292,16 +297,10 @@
 		21B9C54B1576A46F000DFFAF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				21B9C57D1577B228000DFFAF /* Classification Sets */,
+				21B9C57C1577B221000DFFAF /* Choice Lists */,
+				21B9C57B1577B21B000DFFAF /* Forms */,
 				21B9C5551576A756000DFFAF /* Images */,
-				21B9C54C1576A486000DFFAF /* SNFormsViewController.h */,
-				21B9C54D1576A486000DFFAF /* SNFormsViewController.m */,
-				21B9C54E1576A486000DFFAF /* SNFormsViewController.xib */,
-				21B9C5561576A8C8000DFFAF /* SNClassificationSetsViewController.h */,
-				21B9C5571576A8C8000DFFAF /* SNClassificationSetsViewController.m */,
-				21B9C5581576A8C8000DFFAF /* SNClassificationSetsViewController.xib */,
-				21B9C55B1576A8D5000DFFAF /* SNChoiceListsViewController.h */,
-				21B9C55C1576A8D5000DFFAF /* SNChoiceListsViewController.m */,
-				21B9C55D1576A8D5000DFFAF /* SNChoiceListsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -337,6 +336,39 @@
 			path = "samsoffes-sspulltorefresh-42d4d63";
 			sourceTree = "<group>";
 		};
+		21B9C57B1577B21B000DFFAF /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				21B9C54C1576A486000DFFAF /* SNFormsViewController.h */,
+				21B9C54D1576A486000DFFAF /* SNFormsViewController.m */,
+				21B9C54E1576A486000DFFAF /* SNFormsViewController.xib */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
+		21B9C57C1577B221000DFFAF /* Choice Lists */ = {
+			isa = PBXGroup;
+			children = (
+				21B9C55B1576A8D5000DFFAF /* SNChoiceListsViewController.h */,
+				21B9C55C1576A8D5000DFFAF /* SNChoiceListsViewController.m */,
+				21B9C55D1576A8D5000DFFAF /* SNChoiceListsViewController.xib */,
+				21B9C57E1577B264000DFFAF /* SNChoiceListEditViewController.h */,
+				21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */,
+				21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */,
+			);
+			name = "Choice Lists";
+			sourceTree = "<group>";
+		};
+		21B9C57D1577B228000DFFAF /* Classification Sets */ = {
+			isa = PBXGroup;
+			children = (
+				21B9C5561576A8C8000DFFAF /* SNClassificationSetsViewController.h */,
+				21B9C5571576A8C8000DFFAF /* SNClassificationSetsViewController.m */,
+				21B9C5581576A8C8000DFFAF /* SNClassificationSetsViewController.xib */,
+			);
+			name = "Classification Sets";
+			sourceTree = "<group>";
+		};
 		21F40956156FC9350012A1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -353,8 +385,8 @@
 		21F40962156FC9350012A1F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21F40961156FC9350012A1F1 /* FulcrumAPITest.app */,
-				21F4098E156FC9360012A1F1 /* FulcrumAPITestTests.octest */,
+				21F40961156FC9350012A1F1 /* FulcrumAPIDemo.app */,
+				21F4098E156FC9360012A1F1 /* FulcrumAPIDemoTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,10 +425,10 @@
 		21F4096C156FC9350012A1F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				21F4096D156FC9350012A1F1 /* FulcrumAPITest-Info.plist */,
+				21F4096D156FC9350012A1F1 /* FulcrumAPIDemo-Info.plist */,
 				21F4096E156FC9350012A1F1 /* InfoPlist.strings */,
 				21F40971156FC9350012A1F1 /* main.m */,
-				21F40973156FC9350012A1F1 /* FulcrumAPITest-Prefix.pch */,
+				21F40973156FC9350012A1F1 /* FulcrumAPIDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -414,7 +446,7 @@
 		21F40996156FC9360012A1F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				21F40997156FC9360012A1F1 /* FulcrumAPITestTests-Info.plist */,
+				21F40997156FC9360012A1F1 /* FulcrumAPIDemoTests-Info.plist */,
 				21F40998156FC9360012A1F1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -471,9 +503,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21F40960156FC9350012A1F1 /* FulcrumAPITest */ = {
+		21F40960156FC9350012A1F1 /* FulcrumAPIDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F409A0156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPITest" */;
+			buildConfigurationList = 21F409A0156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPIDemo" */;
 			buildPhases = (
 				21F4095D156FC9350012A1F1 /* Sources */,
 				21F4095E156FC9350012A1F1 /* Frameworks */,
@@ -483,14 +515,14 @@
 			);
 			dependencies = (
 			);
-			name = FulcrumAPITest;
+			name = FulcrumAPIDemo;
 			productName = FulcrumAPITest;
-			productReference = 21F40961156FC9350012A1F1 /* FulcrumAPITest.app */;
+			productReference = 21F40961156FC9350012A1F1 /* FulcrumAPIDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21F4098D156FC9360012A1F1 /* FulcrumAPITestTests */ = {
+		21F4098D156FC9360012A1F1 /* FulcrumAPIDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F409A3156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPITestTests" */;
+			buildConfigurationList = 21F409A3156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPIDemoTests" */;
 			buildPhases = (
 				21F40989156FC9360012A1F1 /* Sources */,
 				21F4098A156FC9360012A1F1 /* Frameworks */,
@@ -502,9 +534,9 @@
 			dependencies = (
 				21F40994156FC9360012A1F1 /* PBXTargetDependency */,
 			);
-			name = FulcrumAPITestTests;
+			name = FulcrumAPIDemoTests;
 			productName = FulcrumAPITestTests;
-			productReference = 21F4098E156FC9360012A1F1 /* FulcrumAPITestTests.octest */;
+			productReference = 21F4098E156FC9360012A1F1 /* FulcrumAPIDemoTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -516,7 +548,7 @@
 				CLASSPREFIX = SN;
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 21F4095B156FC9350012A1F1 /* Build configuration list for PBXProject "FulcrumAPITest" */;
+			buildConfigurationList = 21F4095B156FC9350012A1F1 /* Build configuration list for PBXProject "FulcrumAPIDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -528,8 +560,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21F40960156FC9350012A1F1 /* FulcrumAPITest */,
-				21F4098D156FC9360012A1F1 /* FulcrumAPITestTests */,
+				21F40960156FC9350012A1F1 /* FulcrumAPIDemo */,
+				21F4098D156FC9360012A1F1 /* FulcrumAPIDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -557,6 +589,7 @@
 				21B9C5741576B745000DFFAF /* Readme.markdown in Resources */,
 				21B9C5751576B745000DFFAF /* SSPullToRefresh.podspec in Resources */,
 				21B9C57A1576BB9D000DFFAF /* README.md in Resources */,
+				21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +659,7 @@
 				21B9C5761576B745000DFFAF /* SSPullToRefreshDefaultContentView.m in Sources */,
 				21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */,
 				21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */,
+				21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +692,7 @@
 /* Begin PBXTargetDependency section */
 		21F40994156FC9360012A1F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F40960156FC9350012A1F1 /* FulcrumAPITest */;
+			target = 21F40960156FC9350012A1F1 /* FulcrumAPIDemo */;
 			targetProxy = 21F40993156FC9360012A1F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -764,9 +798,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPITest-Prefix.pch";
-				INFOPLIST_FILE = "FulcrumAPITest/FulcrumAPITest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPIDemo-Prefix.pch";
+				INFOPLIST_FILE = "FulcrumAPITest/FulcrumAPIDemo-Info.plist";
+				PRODUCT_NAME = FulcrumAPIDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -775,9 +809,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPITest-Prefix.pch";
-				INFOPLIST_FILE = "FulcrumAPITest/FulcrumAPITest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPIDemo-Prefix.pch";
+				INFOPLIST_FILE = "FulcrumAPITest/FulcrumAPIDemo-Info.plist";
+				PRODUCT_NAME = FulcrumAPIDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -792,8 +826,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPITest-Prefix.pch";
-				INFOPLIST_FILE = "FulcrumAPITestTests/FulcrumAPITestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FulcrumAPITestTests/FulcrumAPIDemoTests-Info.plist";
+				PRODUCT_NAME = FulcrumAPIDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -809,8 +843,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FulcrumAPITest/FulcrumAPITest-Prefix.pch";
-				INFOPLIST_FILE = "FulcrumAPITestTests/FulcrumAPITestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FulcrumAPITestTests/FulcrumAPIDemoTests-Info.plist";
+				PRODUCT_NAME = FulcrumAPIDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -819,7 +853,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21F4095B156FC9350012A1F1 /* Build configuration list for PBXProject "FulcrumAPITest" */ = {
+		21F4095B156FC9350012A1F1 /* Build configuration list for PBXProject "FulcrumAPIDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F4099E156FC9360012A1F1 /* Debug */,
@@ -828,7 +862,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F409A0156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPITest" */ = {
+		21F409A0156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPIDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F409A1156FC9360012A1F1 /* Debug */,
@@ -837,7 +871,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F409A3156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPITestTests" */ = {
+		21F409A3156FC9360012A1F1 /* Build configuration list for PBXNativeTarget "FulcrumAPIDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F409A4156FC9360012A1F1 /* Debug */,
