@@ -11,6 +11,7 @@
 @interface SNChoiceListItem : NSObject
 
 - (NSMutableDictionary*) attributes;
+- (id)initWithAttributes:(NSDictionary*)attributes;
 
 @property (nonatomic, retain) NSString* label;
 @property (nonatomic, retain) NSString* value;

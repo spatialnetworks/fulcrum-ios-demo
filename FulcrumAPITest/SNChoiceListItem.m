@@ -22,6 +22,16 @@
     return self;
 }
 
+- (id)initWithAttributes:(NSDictionary*)attributes
+{
+    self = [super init];
+    if (self) {
+        self.label = [attributes objectForKey:@"label"];
+        self.value = [attributes objectForKey:@"value"];
+    }
+    return self;
+}
+
 - (NSMutableDictionary*) attributes
 {
     NSMutableDictionary* attributes = [NSMutableDictionary dictionary];

@@ -47,12 +47,12 @@
 
 + (void) deleteChoiceList:(SNChoiceList*)choiceList success:(void (^)())success failure:(void (^)(NSError* error))failure {
     NSString* path = [NSString stringWithFormat:@"%@/%@", CHOICE_LIST_PATH, choiceList.id];
-    
     [[SNFulcrumAPIClient sharedInstance] deletePath:path parameters:nil 
                                             success:^(AFHTTPRequestOperation* operation, id responseObject) {
                                                 if (success) success();
                                             } 
                                             failure: ^(AFHTTPRequestOperation* operation, NSError* error) {
+                                                NSLog(@"%@", operation.responseString);
                                                 if (failure) failure(error);
                                             }];
 }

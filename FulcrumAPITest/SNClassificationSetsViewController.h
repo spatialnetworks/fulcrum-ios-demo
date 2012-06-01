@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SSPullToRefreshView.h"
+#import "SNClassificationSetEditViewController.h"
 
-@interface SNClassificationSetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SSPullToRefreshViewDelegate>
+@interface SNClassificationSetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SSPullToRefreshViewDelegate, SNClassificationSetEditViewControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 

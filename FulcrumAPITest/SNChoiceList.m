@@ -30,7 +30,15 @@
     self = [super init];
     if (self) {
         self.name = [attributes objectForKey:@"name"];
-        self.choices = [attributes objectForKey:@"choices"];
+        self.choices = [NSMutableArray array];
+        
+        NSArray* choices = [attributes objectForKey:@"choices"];
+        for (NSDictionary* choiceDict in choices) {
+            SNChoiceListItem* item = [[SNChoiceListItem alloc] initWithAttributes:choiceDict];
+            [self.choices addObject:item];
+            [item release];
+        }
+        
         self.description = [attributes objectForKey:@"description"];
         self.id = [attributes objectForKey:@"id"];
     }

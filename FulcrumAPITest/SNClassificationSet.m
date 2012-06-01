@@ -35,7 +35,15 @@
         self.name = [attributes objectForKey:@"name"];
         self.items = [attributes objectForKey:@"items"];
         self.label = [attributes objectForKey:@"label"];
-        self.childClassificaitons = [attributes objectForKey:@"child_classifications"];
+        //self.childClassificaitons = [attributes objectForKey:@"child_classifications"];
+        self.childClassificaitons = [NSMutableArray array];
+        
+        for (NSDictionary* classDict in [attributes objectForKey:@"child_classifications"])
+        {
+            SNClassificationSetItem* item = [[SNClassificationSetItem alloc] initWithAttributes:classDict];
+            [self.childClassificaitons addObject:item];
+        }
+        
         self.value = [attributes objectForKey:@"value"];
         self.description = [attributes objectForKey:@"description"];
         self.id = [attributes objectForKey:@"id"];

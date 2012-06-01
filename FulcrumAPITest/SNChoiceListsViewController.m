@@ -40,6 +40,9 @@
     // Do any additional setup after loading the view from its nib.
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
 
+    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    
     [self fetchChoiceLists];
 }
 
@@ -56,6 +59,65 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (void) showChoiceListEditView:(SNChoiceList*)choiceList
+{
+    SNChoiceListEditViewController* choiceController = [[[SNChoiceListEditViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    choiceController.delegate = self;
+    if (choiceList)
+    {
+        choiceController.choiceList = choiceList;
+        choiceController.isAddMode = NO;
+    }
+    else {
+        choiceController.isAddMode = YES;
+    }
+    UINavigationController* nav = [[[UINavigationController alloc] initWithRootViewController:choiceController] autorelease];
+    [self presentModalViewController:nav animated:YES];    
+}
+
+- (void) tappedAdd:(id)sender
+{
+    [self showChoiceListEditView:nil];
+}
+
+- (void) choiceListEditor:(SNChoiceListEditViewController *)editController didFinishWithSave:(BOOL)saved
+{
+    [self dismissModalViewControllerAnimated:YES];
+
+    if (saved)
+    {
+        if (editController.isAddMode)
+        {
+            [SNChoiceListAPI createChoiceList:editController.choiceList 
+                                      success:^(void){
+                                          [self fetchChoiceLists];
+                                      } 
+                                      failure:^(NSError* error, NSArray* validationErrors) {
+                                          [self showAlertMessageForError:error otherText:[NSString stringWithFormat:@"%@", validationErrors]];
+                                      }];
+        }
+        else {
+            [SNChoiceListAPI updateChoiceList:editController.choiceList 
+                                      success:^(void) {
+                                          [self fetchChoiceLists];
+                                      } 
+                                      failure:^(NSError* error) {
+                                          [self showAlertMessageForError:error otherText:@"Error updating choice list."];
+                                      }];
+        }
+    }
+}
+- (void) showAlertMessageForError:(NSError*) error otherText:(NSString*)otherText
+{
+    UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" 
+                                                     message:[NSString stringWithFormat:@"Error: %@", otherText] 
+                                                    delegate:nil 
+                                           cancelButtonTitle:@"Ok" 
+                                           otherButtonTitles:nil] autorelease];
+    [alert show];
+}
+
 
 #pragma mark -
 #pragma mark SSPullToRefresh
@@ -82,9 +144,7 @@
         [self.tableView reloadData];
     }
                                    failure:^(NSError* error) {
-                                       UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" 
-                                                                                        message:[NSString stringWithFormat:@"Error loading Choice Lists: %@", error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
-                                       [alert show];
+                                       [self showAlertMessageForError:error otherText:@"Error fetching choice lists"];
                                    }];
 }
 
@@ -117,6 +177,33 @@
     cell.detailTextLabel.text = choiceList.description;
     
     return cell;
+}
+
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        SNChoiceList* choiceList = [self.choiceLists objectAtIndex:indexPath.row];
+        
+        [SNChoiceListAPI deleteChoiceList:choiceList 
+                                  success:^(void){
+                                      [self fetchChoiceLists];
+                                  } 
+                                  failure:^(NSError* error) {
+                                      [self showAlertMessageForError:error otherText:@"Error loading choice lists"];
+                                  }];
+    }
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SNChoiceList* choiceList = [self.choiceLists objectAtIndex:indexPath.row];
+    [self showChoiceListEditView:choiceList];
 }
 
 - (void)dealloc {

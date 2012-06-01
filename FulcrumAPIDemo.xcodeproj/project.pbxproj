@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2134F8131575631F001D71B1 /* SNFormPhotoFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134F8121575631F001D71B1 /* SNFormPhotoFieldElement.m */; };
 		2134F81715756356001D71B1 /* SNFormChoiceFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134F81615756356001D71B1 /* SNFormChoiceFieldElement.m */; };
+		21534837157944C9003C9B2F /* SNClassificationSetEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */; };
+		21534838157944C9003C9B2F /* SNClassificationSetEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */; };
 		21B9C531157571A6000DFFAF /* SNFormClassificationFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C530157571A6000DFFAF /* SNFormClassificationFieldElement.m */; };
 		21B9C53715757277000DFFAF /* SNClassificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53615757277000DFFAF /* SNClassificationSet.m */; };
 		21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C539157575DE000DFFAF /* SNClassificationSetItem.m */; };
@@ -37,6 +39,8 @@
 		21B9C57A1576BB9D000DFFAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5791576BB9D000DFFAF /* README.md */; };
 		21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */; };
 		21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */; };
+		21B9C586157803AA000DFFAF /* SNChoiceListItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C584157803AA000DFFAF /* SNChoiceListItemViewController.m */; };
+		21B9C587157803AB000DFFAF /* SNChoiceListItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C585157803AA000DFFAF /* SNChoiceListItemViewController.xib */; };
 		21F40966156FC9350012A1F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40965156FC9350012A1F1 /* UIKit.framework */; };
 		21F40968156FC9350012A1F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40967156FC9350012A1F1 /* Foundation.framework */; };
 		21F4096A156FC9350012A1F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F40969156FC9350012A1F1 /* CoreGraphics.framework */; };
@@ -103,6 +107,9 @@
 		2134F8121575631F001D71B1 /* SNFormPhotoFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFormPhotoFieldElement.m; sourceTree = "<group>"; };
 		2134F81515756356001D71B1 /* SNFormChoiceFieldElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNFormChoiceFieldElement.h; sourceTree = "<group>"; };
 		2134F81615756356001D71B1 /* SNFormChoiceFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFormChoiceFieldElement.m; sourceTree = "<group>"; };
+		21534834157944C9003C9B2F /* SNClassificationSetEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSetEditViewController.h; sourceTree = "<group>"; };
+		21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetEditViewController.m; sourceTree = "<group>"; };
+		21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNClassificationSetEditViewController.xib; sourceTree = "<group>"; };
 		21B9C52F157571A6000DFFAF /* SNFormClassificationFieldElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNFormClassificationFieldElement.h; sourceTree = "<group>"; };
 		21B9C530157571A6000DFFAF /* SNFormClassificationFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFormClassificationFieldElement.m; sourceTree = "<group>"; };
 		21B9C53515757277000DFFAF /* SNClassificationSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSet.h; sourceTree = "<group>"; };
@@ -146,14 +153,17 @@
 		21B9C57E1577B264000DFFAF /* SNChoiceListEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListEditViewController.h; sourceTree = "<group>"; };
 		21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListEditViewController.m; sourceTree = "<group>"; };
 		21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNChoiceListEditViewController.xib; sourceTree = "<group>"; };
+		21B9C583157803AA000DFFAF /* SNChoiceListItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListItemViewController.h; sourceTree = SOURCE_ROOT; };
+		21B9C584157803AA000DFFAF /* SNChoiceListItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListItemViewController.m; sourceTree = SOURCE_ROOT; };
+		21B9C585157803AA000DFFAF /* SNChoiceListItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNChoiceListItemViewController.xib; sourceTree = SOURCE_ROOT; };
 		21F40961156FC9350012A1F1 /* FulcrumAPIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulcrumAPIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F40965156FC9350012A1F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21F40967156FC9350012A1F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21F40969156FC9350012A1F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		21F4096D156FC9350012A1F1 /* FulcrumAPIDemo-Info.plist */ = {isa = PBXFileReference; path = "FulcrumAPIDemo-Info.plist"; sourceTree = "<group>"; };
+		21F4096D156FC9350012A1F1 /* FulcrumAPIDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FulcrumAPIDemo-Info.plist"; sourceTree = "<group>"; };
 		21F4096F156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21F40971156FC9350012A1F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		21F40973156FC9350012A1F1 /* FulcrumAPIDemo-Prefix.pch */ = {isa = PBXFileReference; path = "FulcrumAPIDemo-Prefix.pch"; sourceTree = "<group>"; };
+		21F40973156FC9350012A1F1 /* FulcrumAPIDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FulcrumAPIDemo-Prefix.pch"; sourceTree = "<group>"; };
 		21F40974156FC9350012A1F1 /* SNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNAppDelegate.h; sourceTree = "<group>"; };
 		21F40975156FC9350012A1F1 /* SNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAppDelegate.m; sourceTree = "<group>"; };
 		21F40977156FC9350012A1F1 /* SNMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNMasterViewController.h; sourceTree = "<group>"; };
@@ -166,7 +176,7 @@
 		21F40987156FC9350012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SNDetailViewController_iPad.xib; sourceTree = "<group>"; };
 		21F4098E156FC9360012A1F1 /* FulcrumAPIDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FulcrumAPIDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F4098F156FC9360012A1F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		21F40997156FC9360012A1F1 /* FulcrumAPIDemoTests-Info.plist */ = {isa = PBXFileReference; path = "FulcrumAPIDemoTests-Info.plist"; sourceTree = "<group>"; };
+		21F40997156FC9360012A1F1 /* FulcrumAPIDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FulcrumAPIDemoTests-Info.plist"; sourceTree = "<group>"; };
 		21F40999156FC9360012A1F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21F4099B156FC9360012A1F1 /* FulcrumAPITestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FulcrumAPITestTests.h; sourceTree = "<group>"; };
 		21F4099C156FC9360012A1F1 /* FulcrumAPITestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FulcrumAPITestTests.m; sourceTree = "<group>"; };
@@ -279,7 +289,7 @@
 			name = Records;
 			sourceTree = "<group>";
 		};
-		21B9C54115765B22000DFFAF /* APIClient */ = {
+		21B9C54115765B22000DFFAF /* API */ = {
 			isa = PBXGroup;
 			children = (
 				21F409D1156FCC6D0012A1F1 /* SNFulcrumAPIClient.h */,
@@ -291,7 +301,7 @@
 				21B9C54515765BCE000DFFAF /* SNChoiceListAPI.h */,
 				21B9C54615765BCE000DFFAF /* SNChoiceListAPI.m */,
 			);
-			name = APIClient;
+			name = API;
 			sourceTree = "<group>";
 		};
 		21B9C54B1576A46F000DFFAF /* View Controllers */ = {
@@ -355,6 +365,9 @@
 				21B9C57E1577B264000DFFAF /* SNChoiceListEditViewController.h */,
 				21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */,
 				21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */,
+				21B9C583157803AA000DFFAF /* SNChoiceListItemViewController.h */,
+				21B9C584157803AA000DFFAF /* SNChoiceListItemViewController.m */,
+				21B9C585157803AA000DFFAF /* SNChoiceListItemViewController.xib */,
 			);
 			name = "Choice Lists";
 			sourceTree = "<group>";
@@ -365,6 +378,9 @@
 				21B9C5561576A8C8000DFFAF /* SNClassificationSetsViewController.h */,
 				21B9C5571576A8C8000DFFAF /* SNClassificationSetsViewController.m */,
 				21B9C5581576A8C8000DFFAF /* SNClassificationSetsViewController.xib */,
+				21534834157944C9003C9B2F /* SNClassificationSetEditViewController.h */,
+				21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */,
+				21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */,
 			);
 			name = "Classification Sets";
 			sourceTree = "<group>";
@@ -375,7 +391,7 @@
 				21B9C5791576BB9D000DFFAF /* README.md */,
 				21B9C5681576B745000DFFAF /* SSPullToRefresh */,
 				21F409A6156FC97A0012A1F1 /* AFNetworking */,
-				21F4096B156FC9350012A1F1 /* FulcrumAPITest */,
+				21F4096B156FC9350012A1F1 /* FulcrumAPIDemo */,
 				21F40995156FC9360012A1F1 /* FulcrumAPITestTests */,
 				21F40964156FC9350012A1F1 /* Frameworks */,
 				21F40962156FC9350012A1F1 /* Products */,
@@ -402,7 +418,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		21F4096B156FC9350012A1F1 /* FulcrumAPITest */ = {
+		21F4096B156FC9350012A1F1 /* FulcrumAPIDemo */ = {
 			isa = PBXGroup;
 			children = (
 				21F409D0156FCC4D0012A1F1 /* FulcrumAPIClient */,
@@ -419,6 +435,7 @@
 				21F40986156FC9350012A1F1 /* SNDetailViewController_iPad.xib */,
 				21F4096C156FC9350012A1F1 /* Supporting Files */,
 			);
+			name = FulcrumAPIDemo;
 			path = FulcrumAPITest;
 			sourceTree = "<group>";
 		};
@@ -483,7 +500,7 @@
 		21F409D0156FCC4D0012A1F1 /* FulcrumAPIClient */ = {
 			isa = PBXGroup;
 			children = (
-				21B9C54115765B22000DFFAF /* APIClient */,
+				21B9C54115765B22000DFFAF /* API */,
 				21F409DD156FD9F90012A1F1 /* Model */,
 			);
 			name = FulcrumAPIClient;
@@ -590,6 +607,8 @@
 				21B9C5751576B745000DFFAF /* SSPullToRefresh.podspec in Resources */,
 				21B9C57A1576BB9D000DFFAF /* README.md in Resources */,
 				21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */,
+				21B9C587157803AB000DFFAF /* SNChoiceListItemViewController.xib in Resources */,
+				21534838157944C9003C9B2F /* SNClassificationSetEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +679,8 @@
 				21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */,
 				21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */,
 				21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */,
+				21B9C586157803AA000DFFAF /* SNChoiceListItemViewController.m in Sources */,
+				21534837157944C9003C9B2F /* SNClassificationSetEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

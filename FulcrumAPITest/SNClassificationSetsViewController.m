@@ -39,7 +39,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
-
+    
+    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
+    
     [self fetchClassificationSets];
 }
 
@@ -50,6 +54,68 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) showClassificationSetEditView:(SNClassificationSet*)classificaitonSet
+{
+    SNClassificationSetEditViewController* editController = [[SNClassificationSetEditViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:editController];
+    
+    editController.delegate = self;
+    
+    if (classificaitonSet)
+    {
+        editController.classificationSet = classificaitonSet;
+        editController.isAddMode = NO;
+    }
+    else {
+        editController.isAddMode = YES;
+    }
+    
+    [self presentModalViewController:nav animated:YES];
+}
+
+- (void) tappedAdd:(id)sender
+{
+    [self showClassificationSetEditView:nil];
+}
+
+- (void) classificationEditView:(SNClassificationSetEditViewController *)controller didFinishWithSave:(BOOL)saved
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+    if (saved)
+    {
+        if (controller.isAddMode)
+        {
+            [SNClassificationSetAPI createClassificationSet:controller.classificationSet 
+                                      success:^(void){
+                                          [self fetchClassificationSets];
+                                      } 
+                                      failure:^(NSError* error, NSArray* validationErrors) {
+                                          [self showAlertMessageForError:error otherText:[NSString stringWithFormat:@"%@", validationErrors]];
+                                      }];
+        }
+        else {
+            [SNClassificationSetAPI updateClassificationSet:controller.classificationSet 
+                                      success:^(void) {
+                                          [self fetchClassificationSets];
+                                      } 
+                                      failure:^(NSError* error) {
+                                          [self showAlertMessageForError:error otherText:@"Error updating choice list."];
+                                      }];
+        }
+    }
+}
+
+- (void) showAlertMessageForError:(NSError*) error otherText:(NSString*)otherText
+{
+    UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" 
+                                                     message:[NSString stringWithFormat:@"Error creating Classification Set: %@", otherText] 
+                                                    delegate:nil 
+                                           cancelButtonTitle:@"Ok" 
+                                           otherButtonTitles:nil] autorelease];
+    [alert show];
 }
 
 #pragma mark -
@@ -78,9 +144,7 @@
         [self.tableView reloadData];
     } 
         failure:^(NSError* error){
-            UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" 
-                                                             message:[NSString stringWithFormat:@"Error loading Classification Sets: %@", error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
-            [alert show];
+            [self showAlertMessageForError:error otherText:@"Error loading classification sets"];
         } ];
 }
 

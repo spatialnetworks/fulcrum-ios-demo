@@ -30,7 +30,13 @@
         self.label = [attributes objectForKey:@"label"];
         self.value = [attributes objectForKey:@"value"];
         
-        self.childClassifications = [attributes objectForKey:@"child_classifications"];
+        self.childClassifications = [NSMutableArray array];
+        
+        for (NSDictionary* classDict in [attributes objectForKey:@"child_classifications"])
+        {
+            SNClassificationSetItem* item = [[SNClassificationSetItem alloc] initWithAttributes:classDict];
+            [self.childClassifications addObject:item];
+        }
     }
     return self;
 }
