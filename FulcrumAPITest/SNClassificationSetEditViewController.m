@@ -28,6 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _classificationSet = [[SNClassificationSet alloc] init];
     }
     return self;
 }
@@ -77,6 +78,17 @@
     [self.delegate classificationEditView:self didFinishWithSave:NO];
 }
 
+- (void) classificationItem:(SNClassificationSetItemEditViewController *)item didFinishWithSave:(BOOL)saved
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+    if (saved) 
+    {
+        [self.classificationSet.items addObject:item.classificationItem];
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark -
 #pragma mark UITableView
 
@@ -94,7 +106,7 @@
             numberOfRows = 1;
             break;
         case 1:
-            numberOfRows = self.classificationSet.childClassificaitons.count +1;
+            numberOfRows = self.classificationSet.items.count +1;
         default:
             break;
     }
@@ -139,14 +151,15 @@
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
-            
-            if (indexPath.row == self.classificationSet.childClassificaitons.count)
+                        
+            if (indexPath.row == self.classificationSet.items.count)
             {
-                cell.textLabel.text = @"+ Add Classification";
+                cell.textLabel.text = @"Add New Classification";
             }
-            
-            SNClassificationSetItem* set = [self.classificationSet.childClassificaitons objectAtIndex:indexPath.row];
-            cell.textLabel.text = set.label;
+            else {
+                SNClassificationSetItem* set = [self.classificationSet.items objectAtIndex:indexPath.row];
+                cell.textLabel.text = set.label;
+            }
             
             break;
         default:
@@ -172,6 +185,41 @@
     }
     
     return title;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 1 && indexPath.row == self.classificationSet.items.count)
+    {
+        SNClassificationSetItemEditViewController* itemController = [[SNClassificationSetItemEditViewController alloc] initWithNibName:nil bundle:nil];
+        itemController.delegate = self;
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:itemController];
+        [self presentModalViewController:nav animated:YES];
+        [itemController release];
+        [nav release];
+    }
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.classificationSet.items removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
+}
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField.tag == 1)
+    {
+        self.classificationSet.name = textField.text;
+    }
 }
 
 @end

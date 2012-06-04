@@ -14,7 +14,6 @@
 @synthesize name = _name;
 @synthesize items = _items;
 @synthesize label = _label;
-@synthesize childClassificaitons = _childClassificaitons;
 @synthesize value = _value;
 @synthesize description = _description;
 @synthesize id = _id;
@@ -33,15 +32,13 @@
     self = [super init];
     if (self) {
         self.name = [attributes objectForKey:@"name"];
-        self.items = [attributes objectForKey:@"items"];
+        self.items = [NSMutableArray array];
         self.label = [attributes objectForKey:@"label"];
-        //self.childClassificaitons = [attributes objectForKey:@"child_classifications"];
-        self.childClassificaitons = [NSMutableArray array];
-        
-        for (NSDictionary* classDict in [attributes objectForKey:@"child_classifications"])
+
+        for (NSDictionary* classDict in [attributes objectForKey:@"items"])
         {
             SNClassificationSetItem* item = [[SNClassificationSetItem alloc] initWithAttributes:classDict];
-            [self.childClassificaitons addObject:item];
+            [self.items addObject:item];
         }
         
         self.value = [attributes objectForKey:@"value"];
@@ -77,7 +74,6 @@
     [_name release];
     [_items release];
     [_label release];
-    [_childClassificaitons release];
     [_value release];
     [_description release];
     [_id release];

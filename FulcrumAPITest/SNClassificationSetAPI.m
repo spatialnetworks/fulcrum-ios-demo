@@ -55,6 +55,7 @@
                                                 if (success) success();
                                             } 
                                             failure: ^(AFHTTPRequestOperation* operation, NSError* error) {
+                                                //NSLog(@"resp: %@", operation.responseString);
                                                 if (failure) failure(error);
                                             }];
 }
@@ -78,6 +79,8 @@
                                               if (success) success();
                                           }
                                           failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+                                              NSLog(@"resp: %@", operation.responseString);
+
                                               NSError* parseError = nil;
                                               NSMutableDictionary* errorsDict = AFJSONDecode(operation.responseData, &parseError);
                                               if (!parseError)

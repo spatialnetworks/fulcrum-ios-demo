@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSMutableArray* items;
 @property (nonatomic, retain) NSString* label;
-@property (nonatomic, retain) NSMutableArray* childClassificaitons;
 @property (nonatomic, retain) NSString* value;
 @property (nonatomic, retain) NSString* description;
 @property (nonatomic, retain) NSString* id;

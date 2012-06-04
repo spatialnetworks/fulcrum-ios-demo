@@ -11,6 +11,8 @@
 		2134F81715756356001D71B1 /* SNFormChoiceFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134F81615756356001D71B1 /* SNFormChoiceFieldElement.m */; };
 		21534837157944C9003C9B2F /* SNClassificationSetEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */; };
 		21534838157944C9003C9B2F /* SNClassificationSetEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */; };
+		2153483D157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153483B157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.m */; };
+		2153483E157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2153483C157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.xib */; };
 		21B9C531157571A6000DFFAF /* SNFormClassificationFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C530157571A6000DFFAF /* SNFormClassificationFieldElement.m */; };
 		21B9C53715757277000DFFAF /* SNClassificationSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C53615757277000DFFAF /* SNClassificationSet.m */; };
 		21B9C53A157575DE000DFFAF /* SNClassificationSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C539157575DE000DFFAF /* SNClassificationSetItem.m */; };
@@ -110,6 +112,9 @@
 		21534834157944C9003C9B2F /* SNClassificationSetEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSetEditViewController.h; sourceTree = "<group>"; };
 		21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetEditViewController.m; sourceTree = "<group>"; };
 		21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNClassificationSetEditViewController.xib; sourceTree = "<group>"; };
+		2153483A157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSetItemEditViewController.h; sourceTree = "<group>"; };
+		2153483B157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNClassificationSetItemEditViewController.m; sourceTree = "<group>"; };
+		2153483C157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNClassificationSetItemEditViewController.xib; sourceTree = "<group>"; };
 		21B9C52F157571A6000DFFAF /* SNFormClassificationFieldElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNFormClassificationFieldElement.h; sourceTree = "<group>"; };
 		21B9C530157571A6000DFFAF /* SNFormClassificationFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFormClassificationFieldElement.m; sourceTree = "<group>"; };
 		21B9C53515757277000DFFAF /* SNClassificationSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNClassificationSet.h; sourceTree = "<group>"; };
@@ -381,6 +386,9 @@
 				21534834157944C9003C9B2F /* SNClassificationSetEditViewController.h */,
 				21534835157944C9003C9B2F /* SNClassificationSetEditViewController.m */,
 				21534836157944C9003C9B2F /* SNClassificationSetEditViewController.xib */,
+				2153483A157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.h */,
+				2153483B157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.m */,
+				2153483C157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.xib */,
 			);
 			name = "Classification Sets";
 			sourceTree = "<group>";
@@ -609,6 +617,7 @@
 				21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */,
 				21B9C587157803AB000DFFAF /* SNChoiceListItemViewController.xib in Resources */,
 				21534838157944C9003C9B2F /* SNClassificationSetEditViewController.xib in Resources */,
+				2153483E157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +690,7 @@
 				21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */,
 				21B9C586157803AA000DFFAF /* SNChoiceListItemViewController.m in Sources */,
 				21534837157944C9003C9B2F /* SNClassificationSetEditViewController.m in Sources */,
+				2153483D157CF5D8003C9B2F /* SNClassificationSetItemEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

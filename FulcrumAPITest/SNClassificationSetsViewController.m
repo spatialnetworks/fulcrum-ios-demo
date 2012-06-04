@@ -104,6 +104,8 @@
                                       failure:^(NSError* error) {
                                           [self showAlertMessageForError:error otherText:@"Error updating choice list."];
                                       }];
+
+
         }
     }
 }
@@ -177,6 +179,29 @@
     cell.detailTextLabel.text = classificaitonSet.description;
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SNClassificationSet* classificationSet = [self.classificationSets objectAtIndex:indexPath.row];
+    [self showClassificationSetEditView:classificationSet];
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        SNClassificationSet* set = [self.classificationSets objectAtIndex:indexPath.row];
+        
+        [SNClassificationSetAPI deleteClassificationSet:set
+                                  success:^(void){
+                                      [self fetchClassificationSets];
+                                  } 
+                                  failure:^(NSError* error) {
+                                      [self showAlertMessageForError:error otherText:@"Error deleting classification set"];
+                                  }];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

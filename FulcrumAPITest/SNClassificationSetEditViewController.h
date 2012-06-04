@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SNClassificationSet.h"
+#import "SNClassificationSetItemEditViewController.h"
 
-@interface SNClassificationSetEditViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface SNClassificationSetEditViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SNClassificationSetItemEditViewControllerDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, retain) SNClassificationSet* classificationSet;
