@@ -3,7 +3,7 @@
 //  FulcrumAPITest
 //
 //  Created by Ben Rigas on 5/30/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
 #import "SNClassificationSetsViewController.h"
@@ -60,7 +60,7 @@
 {
     SNClassificationSetEditViewController* editController = [[SNClassificationSetEditViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:editController];
-    
+    nav.navigationBar.barStyle = UIBarStyleBlack;
     editController.delegate = self;
     
     if (classificaitonSet)

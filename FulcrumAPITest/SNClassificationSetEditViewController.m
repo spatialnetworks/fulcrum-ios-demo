@@ -3,7 +3,7 @@
 //  FulcrumAPIDemo
 //
 //  Created by Ben Rigas on 6/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
 #import "SNClassificationSetEditViewController.h"
@@ -196,6 +196,7 @@
         SNClassificationSetItemEditViewController* itemController = [[SNClassificationSetItemEditViewController alloc] initWithNibName:nil bundle:nil];
         itemController.delegate = self;
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:itemController];
+        nav.navigationBar.barStyle = UIBarStyleBlack;
         [self presentModalViewController:nav animated:YES];
         [itemController release];
         [nav release];

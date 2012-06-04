@@ -3,7 +3,7 @@
 //  FulcrumAPITest
 //
 //  Created by Ben Rigas on 5/30/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
 #import "SNChoiceListsViewController.h"
@@ -73,6 +73,7 @@
         choiceController.isAddMode = YES;
     }
     UINavigationController* nav = [[[UINavigationController alloc] initWithRootViewController:choiceController] autorelease];
+    nav.navigationBar.barStyle = UIBarStyleBlack;
     [self presentModalViewController:nav animated:YES];    
 }
 

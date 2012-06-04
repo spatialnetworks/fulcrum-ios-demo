@@ -3,7 +3,7 @@
 //  FulcrumAPIDemo
 //
 //  Created by Ben Rigas on 5/31/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Spatial Networks. All rights reserved.
 //
 
 #import "SNChoiceListItemViewController.h"
@@ -32,6 +32,8 @@
         _valueField = [[UITextField alloc] initWithFrame:CGRectMake(75, 5, 295, 34)];
         _valueField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _valueField.delegate = self;
+        
+        self.title = @"New Choice";
     }
     return self;
 }
