@@ -20,7 +20,6 @@
 @property (nonatomic, retain) NSString* id;
 @property (nonatomic, retain) NSDate* updatedAt;
 @property (nonatomic, retain) NSDate* createdAt;
-
-@property (nonatomic, retain) SNFormSectionElement* rootSectionElement;
+@property (nonatomic, retain) NSMutableArray* elements;
 
 @end

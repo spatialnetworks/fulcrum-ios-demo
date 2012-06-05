@@ -18,6 +18,22 @@
     if (self) {
         self.type = @"Section";
         self.elements = [NSMutableArray array];
+        
+        for (NSDictionary* elementDict in [attributes objectForKey:@"elements"]) {
+            for (NSDictionary* elementDict in [attributes objectForKey:@"elements"]) {
+                
+                if ([[elementDict objectForKey:@"type"] isEqualToString:@"Section"])
+                {
+                    SNFormSectionElement* section = [[SNFormSectionElement alloc] initWithAttributes:elementDict];
+                    [self.elements addObject:section];
+                    [section release];
+                }
+                else {
+                    SNFormElement* element = [[SNFormElement alloc] initWithAttributes:elementDict];
+                    [self.elements addObject:element];
+                }
+            }
+        }
     }
     return self;
 }

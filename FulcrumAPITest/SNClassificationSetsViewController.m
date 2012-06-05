@@ -12,7 +12,6 @@
 @interface SNClassificationSetsViewController ()
 
 @property (nonatomic, retain) NSArray* classificationSets;
-@property (nonatomic, retain) SSPullToRefreshView* pullToRefreshView;
 
 @end
 
@@ -20,7 +19,6 @@
 
 @synthesize tableView = _tableView;
 @synthesize classificationSets = _classificationSets;
-@synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,11 +36,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
     
     UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd:)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
+    
+    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(tappedRefresh:)];
+    self.navigationItem.leftBarButtonItem = refreshButton;
+    [refreshButton release];
     
     [self fetchClassificationSets];
 }
@@ -50,7 +51,6 @@
 - (void)viewDidUnload
 {
     [self setTableView:nil];
-    self.pullToRefreshView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -120,19 +120,14 @@
     [alert show];
 }
 
-#pragma mark -
-#pragma mark SSPullToRefresh
-
-- (void)refresh {
-    [self.pullToRefreshView startLoading];
-    // Load data...
-    [self fetchClassificationSets];
-    
-    [self.pullToRefreshView finishLoading];
+- (void) tappedRefresh:(id)sender
+{
+    [self refresh];
 }
 
-- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
-    [self refresh];
+- (void)refresh {
+    // Load data...
+    [self fetchClassificationSets];
 }
 
 #pragma mark -
@@ -212,7 +207,6 @@
 - (void)dealloc {
     [_tableView release];
     [_classificationSets release];
-    [_pullToRefreshView release];
     [super dealloc];
 }
 @end

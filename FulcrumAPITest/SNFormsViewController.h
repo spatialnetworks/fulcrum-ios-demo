@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSPullToRefreshView.h"
+#import "SNFormViewController.h"
 
-@interface SNFormsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SSPullToRefreshViewDelegate>
+@interface SNFormsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SNFormViewControllerDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 @end

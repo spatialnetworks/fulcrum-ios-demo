@@ -29,7 +29,7 @@
 @synthesize label = _label;
 
 
-- (id)initWithAttributes:(NSMutableDictionary*)attributes
+- (id)initWithAttributes:(NSDictionary*)attributes
 {
     self = [super init];
     if (self) {

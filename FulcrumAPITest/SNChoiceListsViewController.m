@@ -12,7 +12,6 @@
 @interface SNChoiceListsViewController ()
 
 @property (nonatomic, retain) NSArray* choiceLists;
-@property (nonatomic, retain) SSPullToRefreshView* pullToRefreshView;
 
 @end
 
@@ -20,7 +19,6 @@
 
 @synthesize tableView = _tableView;
 @synthesize choiceLists = _choiceLists;
-@synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,10 +36,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
 
     UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(tappedRefresh:)];
+    self.navigationItem.leftBarButtonItem = refreshButton;
+    [refreshButton release];
     
     [self fetchChoiceLists];
 }
@@ -49,7 +50,6 @@
 - (void)viewDidUnload
 {
     [self setTableView:nil];
-    self.pullToRefreshView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -80,6 +80,11 @@
 - (void) tappedAdd:(id)sender
 {
     [self showChoiceListEditView:nil];
+}
+
+- (void) tappedRefresh:(id)sender
+{
+    [self refresh];
 }
 
 - (void) choiceListEditor:(SNChoiceListEditViewController *)editController didFinishWithSave:(BOOL)saved
@@ -119,20 +124,9 @@
     [alert show];
 }
 
-
-#pragma mark -
-#pragma mark SSPullToRefresh
-
 - (void)refresh {
-    [self.pullToRefreshView startLoading];
     // Load data...
-    [self fetchChoiceLists];
-    
-    [self.pullToRefreshView finishLoading];
-}
-
-- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
-    [self refresh];
+    [self fetchChoiceLists];    
 }
 
 #pragma mark -
@@ -210,7 +204,6 @@
 - (void)dealloc {
     [_tableView release];
     [_choiceLists release];
-    [_pullToRefreshView release];
     
     [super dealloc];
 }

@@ -208,7 +208,7 @@
         SNFormTextFieldElement* textElement = [[SNFormTextFieldElement alloc] init];
         textElement.label = [NSString stringWithFormat:@"Text field #%d", x];
         textElement.dataName = @"text_foo";
-        [testForm.rootSectionElement.elements addObject:textElement];
+        [testForm.elements addObject:textElement];
         [textElement release];
     }
     
@@ -220,7 +220,7 @@
     [choiceElement addLabel:@"A" withValue:@"A"];
     [choiceElement addLabel:@"B" withValue:@"B"];
     [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [testForm.elements addObject:choiceElement];
     [choiceElement release];
     
     choiceElement = [[SNFormChoiceFieldElement alloc] init];
@@ -231,7 +231,7 @@
     [choiceElement addLabel:@"A" withValue:@"A"];
     [choiceElement addLabel:@"B" withValue:@"B"];
     [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [testForm.elements addObject:choiceElement];
     [choiceElement release];
     
     choiceElement = [[SNFormChoiceFieldElement alloc] init];
@@ -242,7 +242,7 @@
     [choiceElement addLabel:@"A" withValue:@"A"];
     [choiceElement addLabel:@"B" withValue:@"B"];
     [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [testForm.elements addObject:choiceElement];
     [choiceElement release];
     
     choiceElement = [[SNFormChoiceFieldElement alloc] init];
@@ -253,7 +253,7 @@
     [choiceElement addLabel:@"A" withValue:@"A"];
     [choiceElement addLabel:@"B" withValue:@"B"];
     [choiceElement addLabel:@"C" withValue:@"C"];
-    [testForm.rootSectionElement.elements addObject:choiceElement];
+    [testForm.elements addObject:choiceElement];
     [choiceElement release];
     
     SNFormSectionElement* testSection = [[SNFormSectionElement alloc] init];
@@ -268,7 +268,7 @@
         [textElement release];
     }
     
-    [testForm.rootSectionElement.elements addObject:testSection];
+    [testForm.elements addObject:testSection];
     
     [SNFormAPI createForm:testForm 
                   success:^(void){

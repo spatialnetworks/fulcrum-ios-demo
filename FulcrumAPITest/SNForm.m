@@ -16,7 +16,7 @@
 @synthesize id = _id;
 @synthesize updatedAt = _updatedAt;
 @synthesize createdAt = _createdAt;
-@synthesize rootSectionElement = _rootSectionElement;
+@synthesize elements = _elements;
 
 - (id)initWithAttributes:(NSDictionary*)attributes
 {
@@ -27,8 +27,23 @@
         self.id = [attributes objectForKey:@"id"];
         self.createdAt = [attributes objectForKey:@"created_at"];
         self.updatedAt = [attributes objectForKey:@"updated_at"];
+        self.elements = [NSMutableArray array];
         
-        self.rootSectionElement = [[SNFormSectionElement alloc] init];
+        for (NSDictionary* elementDict in [attributes objectForKey:@"elements"]) {
+            
+            if ([[elementDict objectForKey:@"type"] isEqualToString:@"Section"])
+            {
+                SNFormSectionElement* section = [[SNFormSectionElement alloc] initWithAttributes:elementDict];
+                [self.elements addObject:section];
+                [section release];
+            }
+            else {
+                SNFormElement* element = [[SNFormElement alloc] initWithAttributes:elementDict];
+                [self.elements addObject:element];
+            }
+        }
+        
+        NSLog(@"attributes: %@", attributes);
     }
     
     return self;
@@ -38,8 +53,7 @@
 {
     self = [super init];
     if (self) {
-        _rootSectionElement = [[SNFormSectionElement alloc] init];
-        _rootSectionElement.dataName = @"root_section";
+        self.elements = [NSMutableArray array];
     }
     return self;
 }
@@ -54,11 +68,8 @@
 //    if (self.createdAt) [attributes setObject:self.createdAt forKey:@"created_at"];
 //    if (self.updatedAt) [attributes setObject:self.updatedAt forKey:@"updated_at"];
     
-//    [attributes setObject:self.rootSectionElement forKey:@"elements"];
-    
-//    [attributes setObject:self.rootSectionElement.attributes forKey:@"elements"];
     NSMutableArray* elements = [NSMutableArray array];
-    for (SNFormElement* element in self.rootSectionElement.elements) {
+    for (SNFormElement* element in self.elements) {
         [elements addObject:element.attributes];
     }
     [attributes setObject:elements forKey:@"elements"];
@@ -75,8 +86,6 @@
     [_id release];
     [_updatedAt release];
     [_createdAt release];
-    
-    [_rootSectionElement release];
     
     [super dealloc];
 }

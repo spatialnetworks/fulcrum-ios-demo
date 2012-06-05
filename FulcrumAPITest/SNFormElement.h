@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString* label;
 
 
-- (id)initWithAttributes:(NSMutableDictionary*)attributes;
+- (id)initWithAttributes:(NSDictionary*)attributes;
 - (NSMutableDictionary*) attributes;
 
 @end

@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSPullToRefreshView.h"
 #import "SNChoiceListEditViewController.h"
 
-@interface SNChoiceListsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SSPullToRefreshViewDelegate, SNChoiceListEditViewControllerDelegate>
+@interface SNChoiceListsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SNChoiceListEditViewControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
