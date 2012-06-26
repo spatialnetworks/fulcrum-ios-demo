@@ -36,12 +36,6 @@
 		21B9C5631576AA58000DFFAF /* 259-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5611576AA58000DFFAF /* 259-list@2x.png */; };
 		21B9C5661576AAC8000DFFAF /* 15-tags.png in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5641576AAC8000DFFAF /* 15-tags.png */; };
 		21B9C5671576AAC8000DFFAF /* 15-tags@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5651576AAC8000DFFAF /* 15-tags@2x.png */; };
-		21B9C5731576B745000DFFAF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5691576B745000DFFAF /* LICENSE */; };
-		21B9C5741576B745000DFFAF /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C56A1576B745000DFFAF /* Readme.markdown */; };
-		21B9C5751576B745000DFFAF /* SSPullToRefresh.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C56C1576B745000DFFAF /* SSPullToRefresh.podspec */; };
-		21B9C5761576B745000DFFAF /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C56E1576B745000DFFAF /* SSPullToRefreshDefaultContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		21B9C57A1576BB9D000DFFAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5791576BB9D000DFFAF /* README.md */; };
 		21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */; };
 		21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B9C5801577B264000DFFAF /* SNChoiceListEditViewController.xib */; };
@@ -154,16 +148,6 @@
 		21B9C5611576AA58000DFFAF /* 259-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "259-list@2x.png"; sourceTree = "<group>"; };
 		21B9C5641576AAC8000DFFAF /* 15-tags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags.png"; sourceTree = "<group>"; };
 		21B9C5651576AAC8000DFFAF /* 15-tags@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags@2x.png"; sourceTree = "<group>"; };
-		21B9C5691576B745000DFFAF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		21B9C56A1576B745000DFFAF /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
-		21B9C56B1576B745000DFFAF /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
-		21B9C56C1576B745000DFFAF /* SSPullToRefresh.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SSPullToRefresh.podspec; sourceTree = "<group>"; };
-		21B9C56D1576B745000DFFAF /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
-		21B9C56E1576B745000DFFAF /* SSPullToRefreshDefaultContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshDefaultContentView.m; sourceTree = "<group>"; };
-		21B9C56F1576B745000DFFAF /* SSPullToRefreshSimpleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshSimpleContentView.h; sourceTree = "<group>"; };
-		21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
-		21B9C5711576B745000DFFAF /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
-		21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		21B9C5791576BB9D000DFFAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		21B9C57E1577B264000DFFAF /* SNChoiceListEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChoiceListEditViewController.h; sourceTree = "<group>"; };
 		21B9C57F1577B264000DFFAF /* SNChoiceListEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChoiceListEditViewController.m; sourceTree = "<group>"; };
@@ -343,24 +327,6 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		21B9C5681576B745000DFFAF /* SSPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				21B9C5691576B745000DFFAF /* LICENSE */,
-				21B9C56A1576B745000DFFAF /* Readme.markdown */,
-				21B9C56B1576B745000DFFAF /* SSPullToRefresh.h */,
-				21B9C56C1576B745000DFFAF /* SSPullToRefresh.podspec */,
-				21B9C56D1576B745000DFFAF /* SSPullToRefreshDefaultContentView.h */,
-				21B9C56E1576B745000DFFAF /* SSPullToRefreshDefaultContentView.m */,
-				21B9C56F1576B745000DFFAF /* SSPullToRefreshSimpleContentView.h */,
-				21B9C5701576B745000DFFAF /* SSPullToRefreshSimpleContentView.m */,
-				21B9C5711576B745000DFFAF /* SSPullToRefreshView.h */,
-				21B9C5721576B745000DFFAF /* SSPullToRefreshView.m */,
-			);
-			name = SSPullToRefresh;
-			path = "samsoffes-sspulltorefresh-42d4d63";
-			sourceTree = "<group>";
-		};
 		21B9C57B1577B21B000DFFAF /* Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				21B9C5791576BB9D000DFFAF /* README.md */,
-				21B9C5681576B745000DFFAF /* SSPullToRefresh */,
 				21F409A6156FC97A0012A1F1 /* AFNetworking */,
 				21F4096B156FC9350012A1F1 /* FulcrumAPIDemo */,
 				21F40995156FC9360012A1F1 /* FulcrumAPITestTests */,
@@ -626,9 +591,6 @@
 				21B9C5631576AA58000DFFAF /* 259-list@2x.png in Resources */,
 				21B9C5661576AAC8000DFFAF /* 15-tags.png in Resources */,
 				21B9C5671576AAC8000DFFAF /* 15-tags@2x.png in Resources */,
-				21B9C5731576B745000DFFAF /* LICENSE in Resources */,
-				21B9C5741576B745000DFFAF /* Readme.markdown in Resources */,
-				21B9C5751576B745000DFFAF /* SSPullToRefresh.podspec in Resources */,
 				21B9C57A1576BB9D000DFFAF /* README.md in Resources */,
 				21B9C5821577B264000DFFAF /* SNChoiceListEditViewController.xib in Resources */,
 				21B9C587157803AB000DFFAF /* SNChoiceListItemViewController.xib in Resources */,
@@ -702,9 +664,6 @@
 				21B9C54F1576A486000DFFAF /* SNFormsViewController.m in Sources */,
 				21B9C5591576A8C8000DFFAF /* SNClassificationSetsViewController.m in Sources */,
 				21B9C55E1576A8D5000DFFAF /* SNChoiceListsViewController.m in Sources */,
-				21B9C5761576B745000DFFAF /* SSPullToRefreshDefaultContentView.m in Sources */,
-				21B9C5771576B745000DFFAF /* SSPullToRefreshSimpleContentView.m in Sources */,
-				21B9C5781576B745000DFFAF /* SSPullToRefreshView.m in Sources */,
 				21B9C5811577B264000DFFAF /* SNChoiceListEditViewController.m in Sources */,
 				21B9C586157803AA000DFFAF /* SNChoiceListItemViewController.m in Sources */,
 				21534837157944C9003C9B2F /* SNClassificationSetEditViewController.m in Sources */,

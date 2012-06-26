@@ -197,6 +197,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     SNChoiceList* choiceList = [self.choiceLists objectAtIndex:indexPath.row];
     [self showChoiceListEditView:choiceList];
 }

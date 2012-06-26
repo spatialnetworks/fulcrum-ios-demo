@@ -14,6 +14,8 @@
 //#define FulcrumAPIToken @"194f63c86e7b763840bf2116d6ef484d410ca5259e53e252339324acb4cb432d"
 #define FulcrumAPIBaseURLString @"http://staging.fulcrumapp.com/api/v2/"
 #define FulcrumAPIToken @"e205fbe5107646ea36befdf7dda5edd86f509fcd5f3ecb5c2128137ad628338d"
+//#define FulcrumAPIToken @"PASTE_YOUR_KEY_HERE"
+
 
 @implementation SNFulcrumAPIClient
 
@@ -36,9 +38,18 @@
     self = [super initWithBaseURL:url];
     if (self) {
         //custom settings
+        
+        if ([FulcrumAPIToken isEqualToString:@"PASTE_YOUR_KEY_HERE"])
+        {
+            UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"API Token not set" 
+                                                            message:@"Paste your API Token in SNFulcrumAPIClient.m" 
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"Ok" 
+                                                  otherButtonTitles: nil] autorelease];
+            [alert show];
+        }
+        
         [self setDefaultHeader:@"X-ApiToken" value:FulcrumAPIToken];
-        
-        
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     
