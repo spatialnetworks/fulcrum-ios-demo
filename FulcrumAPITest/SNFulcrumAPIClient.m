@@ -10,11 +10,8 @@
 
 #import "AFJSONRequestOperation.h"
 
-//#define FulcrumAPIBaseURLString @"https://web.fulcrumapp.com/api/v2/"
-//#define FulcrumAPIToken @"194f63c86e7b763840bf2116d6ef484d410ca5259e53e252339324acb4cb432d"
-#define FulcrumAPIBaseURLString @"http://staging.fulcrumapp.com/api/v2/"
-#define FulcrumAPIToken @"e205fbe5107646ea36befdf7dda5edd86f509fcd5f3ecb5c2128137ad628338d"
-//#define FulcrumAPIToken @"PASTE_YOUR_KEY_HERE"
+#define FulcrumAPIBaseURLString @"https://api.fulcrumapp.com/api/v2"
+#define FulcrumAPIToken @"PASTE_YOUR_KEY_HERE"
 
 
 @implementation SNFulcrumAPIClient
