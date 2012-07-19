@@ -18,6 +18,8 @@ Your API key is available on your [profile page][profile]. As an example, if you
 
 	#define FulcrumAPIToken @"abcdefghijklmnopqrstuvwxyz1234567890"	
 
+Check out the [ Fulcrum documentation][docs] for more information on using Fulcrum in general.
+
 [fulcrum]: http://fulcrumapp.com/ "Fulcrum" 
 [api]: http://developer.fulcrumapp.com/api/fulcrum-api.html  "Fulcrum API"
 [af]: https://github.com/AFNetworking/AFNetworking/ "AFNetworking on Github"
@@ -25,3 +27,4 @@ Your API key is available on your [profile page][profile]. As an example, if you
 [choicelists]: http://developer.fulcrumapp.com/api/fulcrum-api.html#choice_lists "Choice Lists"
 [classificationsets]: http://developer.fulcrumapp.com/api/fulcrum-api.html#classification_sets "Classification Sets"
 [profile]: http://web.fulcrumapp.com/users/api "profile page"
+[docs]: http://docs.fulcrumapp.com/ "documentation"
