@@ -21,10 +21,10 @@ Your API key is available on your [profile page][profile]. As an example, if you
 Check out the [ Fulcrum documentation][docs] for more information on using Fulcrum in general.
 
 [fulcrum]: http://fulcrumapp.com/ "Fulcrum" 
-[api]: http://developer.fulcrumapp.com/api/fulcrum-api.html  "Fulcrum API"
+[api]: http://developer.fulcrumapp.com/api/intro/  "Fulcrum API"
 [af]: https://github.com/AFNetworking/AFNetworking/ "AFNetworking on Github"
-[forms]: http://developer.fulcrumapp.com/api/fulcrum-api.html#forms "Forms"
-[choicelists]: http://developer.fulcrumapp.com/api/fulcrum-api.html#choice_lists "Choice Lists"
-[classificationsets]: http://developer.fulcrumapp.com/api/fulcrum-api.html#classification_sets "Classification Sets"
+[forms]: http://developer.fulcrumapp.com/endpoints/forms/ "Forms"
+[choicelists]: http://developer.fulcrumapp.com/endpoints/choice-lists/ "Choice Lists"
+[classificationsets]: http://developer.fulcrumapp.com/endpoints/classification-sets/ "Classification Sets"
 [profile]: http://web.fulcrumapp.com/users/api "profile page"
 [docs]: http://docs.fulcrumapp.com/ "documentation"
